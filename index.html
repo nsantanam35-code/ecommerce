@@ -12,16 +12,14 @@
     <nav class="navbar sticky-top">
         <div class="container d-flex justify-content-between align-items-center">
             <a class="nav-logo" href="#">DENTAL<span>LOGIC</span></a>
-            <button class="btn-cart-nav shadow-sm" data-bs-toggle="offcanvas" data-bs-target="#cartSide">
-                🛒 Carrito (<span id="count">0</span>)
-            </button>
+            <button class="btn-cart-nav shadow-sm" data-bs-toggle="offcanvas" data-bs-target="#cartSide">🛒 Carrito (<span id="count">0</span>)</button>
         </div>
     </nav>
 
     <header class="hero">
         <div class="container">
-            <h1 class="fw-bold">Precisión Clínica Digital</h1>
-            <p class="lead opacity-75">Soluciones Python especializadas por Nataly Santana.</p>
+            <h1 class="fw-bold display-4">Precisión Clínica Digital</h1>
+            <p class="lead opacity-75">Nataly Santana | Desarrollo Full Stack para Odontología Moderna</p>
         </div>
     </header>
 
@@ -38,7 +36,62 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-4">
+                <div class="product-card p-3">
+                    <div class="img-wrapper rounded-4"><img src="https://images.unsplash.com/photo-1551076805-e1869033e561?q=80&w=400" class="card-img-top"></div>
+                    <div class="p-2">
+                        <span class="badge-tech">Algoritmos</span>
+                        <h5 class="fw-bold">AlloyCalc Python</h5>
+                        <div class="price-tag">$32.500</div>
+                        <button class="btn-add" onclick="add('AlloyCalc Python', 32500)">Añadir al Carrito</button>
+                    </div>
+                </div>
             </div>
+            <div class="col-md-4">
+                <div class="product-card p-3">
+                    <div class="img-wrapper rounded-4"><img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=400" class="card-img-top"></div>
+                    <div class="p-2">
+                        <span class="badge-tech">Bioseguridad</span>
+                        <h5 class="fw-bold">BioLog 360</h5>
+                        <div class="price-tag">$29.900</div>
+                        <button class="btn-add" onclick="add('BioLog 360', 29900)">Añadir al Carrito</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="product-card p-3">
+                    <div class="img-wrapper rounded-4"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=400" class="card-img-top"></div>
+                    <div class="p-2">
+                        <span class="badge-tech">Inventarios AI</span>
+                        <h5 class="fw-bold">StockDental AI</h5>
+                        <div class="price-tag">$54.900</div>
+                        <button class="btn-add" onclick="add('StockDental AI', 54900)">Añadir al Carrito</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="product-card p-3">
+                    <div class="img-wrapper rounded-4"><img src="https://images.unsplash.com/photo-1518152006812-edab29b069ac?q=80&w=400" class="card-img-top"></div>
+                    <div class="p-2">
+                        <span class="badge-tech">Calibración</span>
+                        <h5 class="fw-bold">ScannerCare Hub</h5>
+                        <div class="price-tag">$42.000</div>
+                        <button class="btn-add" onclick="add('ScannerCare Hub', 42000)">Añadir al Carrito</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="product-card p-3">
+                    <div class="img-wrapper rounded-4"><img src="https://images.unsplash.com/photo-1584017911766-d451b3d0e843?q=80&w=400" class="card-img-top"></div>
+                    <div class="p-2">
+                        <span class="badge-tech">Finanzas</span>
+                        <h5 class="fw-bold">BillingDent Express</h5>
+                        <div class="price-tag">$68.000</div>
+                        <button class="btn-add" onclick="add('BillingDent Express', 68000)">Añadir al Carrito</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <div class="offcanvas offcanvas-end shadow" tabindex="-1" id="cartSide">
@@ -51,11 +104,19 @@
             <div class="mt-4 p-4 bg-light rounded-4 d-flex justify-content-between h4 fw-bold">
                 <span>Total:</span><span id="totalPrice">$0</span>
             </div>
-            <a href="#" id="waCheck" class="btn btn-success w-100 py-3 mt-3 fw-bold rounded-4 shadow" style="display:none;">IR A PAGAR 💳</a>
+            <a href="#" id="waCheck" class="btn btn-success w-100 py-3 mt-3 fw-bold rounded-4 shadow" style="display:none; background-color: var(--wa); border:none;">IR A PAGAR 💳</a>
         </div>
     </div>
 
     <a href="https://wa.me/56959530948" class="wa-float" target="_blank">📲</a>
+
+    <footer>
+        <div class="container">
+            <h4 class="text-white fw-bold mb-3">DENTAL LOGIC</h4>
+            <p class="small mb-1">Nataly Santana | +569 5953 0948</p>
+            <p class="small opacity-50">Valdivia, Chile | 2026</p>
+        </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/script.js"></script>
