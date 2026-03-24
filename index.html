@@ -9,35 +9,24 @@
     <style>
         :root { --primary: #0f172a; --accent: #0ea5e9; --bg: #f8fafc; --wa: #22c55e; }
         body { background: var(--bg); font-family: 'Inter', sans-serif; color: #1e293b; }
-        
         .navbar { background: var(--primary); border-bottom: 3px solid var(--accent); padding: 1rem 0; }
         .nav-logo { font-weight: 800; font-size: 1.6rem; color: white; text-decoration: none; display: flex; align-items: center; gap: 10px; }
         .nav-logo span { color: var(--accent); }
         .logo-icon { width: 35px; height: 35px; background: var(--accent); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
         .btn-cart-nav { background: white; color: var(--primary); border-radius: 12px; padding: 10px 20px; font-weight: 700; border: none; }
-
-        .hero { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: white; padding: 80px 0; text-align: center; }
-        
-        /* Sección Sobre Mí */
+        .hero { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: white; padding: 60px 0; text-align: center; }
         .about-section { background: white; padding: 60px 0; border-bottom: 1px solid #e2e8f0; }
-        .profile-img { width: 150px; height: 150px; object-fit: cover; border-radius: 50%; border: 4px solid var(--accent); margin-bottom: 20px; }
-
         .product-card { border: 1px solid #e2e8f0; border-radius: 24px; background: white; transition: 0.3s; height: 100%; overflow: hidden; }
         .product-card:hover { transform: translateY(-10px); border-color: var(--accent); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
         .card-img-container { height: 180px; overflow: hidden; }
         .card-img-top { height: 100%; width: 100%; object-fit: cover; }
-        
         .price-tag { font-size: 1.5rem; font-weight: 800; color: var(--primary); margin: 15px 0; }
         .btn-add { background: var(--bg); color: var(--primary); border: 2px solid var(--primary); font-weight: 700; border-radius: 12px; width: 100%; padding: 12px; }
-        .btn-add:hover { background: var(--primary); color: white; }
-
-        /* Formulario Estilizado */
         .contact-section { background: #f1f5f9; padding: 80px 0; }
         .contact-form { background: white; padding: 40px; border-radius: 24px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
-        .form-control { border-radius: 12px; padding: 12px; border: 1px solid #e2e8f0; }
+        .form-control { border-radius: 12px; padding: 12px; border: 1px solid #e2e8f0; margin-bottom: 15px; }
         .btn-submit { background: var(--primary); color: white; font-weight: 700; padding: 12px 30px; border-radius: 12px; border: none; width: 100%; transition: 0.3s; }
         .btn-submit:hover { background: var(--accent); transform: translateY(-2px); }
-
         footer { background: var(--primary); color: rgba(255,255,255,0.8); padding: 60px 0; border-top: 4px solid var(--accent); }
     </style>
 </head>
@@ -50,15 +39,15 @@
                 DENTAL<span>LOGIC</span>
             </a>
             <button class="btn-cart-nav" data-bs-toggle="offcanvas" data-bs-target="#cartSide">
-                🛒 Mi Plan (<span id="count">0</span>)
+                🛒 Mi Carrito (<span id="count">0</span>)
             </button>
         </div>
     </nav>
 
     <header class="hero">
         <div class="container">
-            <h1 class="fw-bold display-4">Precisión que Transforma</h1>
-            <p class="lead">Software especializado para la nueva era de la odontología digital.</p>
+            <h1 class="fw-bold display-4">Precisión Dental Digital</h1>
+            <p class="lead">Soluciones de software creadas por Nataly Santana.</p>
         </div>
     </header>
 
@@ -66,8 +55,8 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8">
-                    <h2 class="fw-bold mb-4">Sobre la Desarrolladora</h2>
-                    <p class="lead text-muted">Soy <strong>Nataly Santana</strong>, Laboratorista Dental en transición al mundo del desarrollo de software. Mi objetivo es unir la precisión del laboratorio técnico con la potencia de <strong>Python</strong> y soluciones Full Stack para crear herramientas que realmente solucionen el día a día clínico.</p>
+                    <h2 class="fw-bold mb-4">Sobre Mí</h2>
+                    <p class="lead text-muted">Laboratorista Dental evolucionando hacia el desarrollo Full Stack Python. Mi foco es crear herramientas eficientes para nuestra industria.</p>
                 </div>
             </div>
         </div>
@@ -76,30 +65,27 @@
     <main class="container py-5">
         <div class="row g-4 row-cols-1 row-cols-md-3">
             <div class="col">
-                <div class="product-card p-4 shadow-sm">
+                <div class="product-card p-4 shadow-sm text-center">
                     <div class="card-img-container rounded-4 mb-3"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=400" class="card-img-top"></div>
                     <h5 class="fw-bold">LabFlow Pro</h5>
-                    <p class="small text-muted">Gestión de flujo de trabajo y órdenes técnicas.</p>
                     <div class="price-tag">$85.000</div>
-                    <button class="btn-add" onclick="add('LabFlow Pro', 85000)">Agregar al Plan</button>
+                    <button class="btn-add" onclick="add('LabFlow Pro', 85000)">Agregar</button>
                 </div>
             </div>
             <div class="col">
-                <div class="product-card p-4 shadow-sm">
+                <div class="product-card p-4 shadow-sm text-center">
                     <div class="card-img-container rounded-4 mb-3"><img src="https://images.unsplash.com/photo-1518152006812-edab29b069ac?q=80&w=400" class="card-img-top"></div>
                     <h5 class="fw-bold">AlloyCalc Python</h5>
-                    <p class="small text-muted">Calculadora avanzada de aleaciones metálicas.</p>
                     <div class="price-tag">$32.500</div>
-                    <button class="btn-add" onclick="add('AlloyCalc Python', 32500)">Agregar al Plan</button>
+                    <button class="btn-add" onclick="add('AlloyCalc Python', 32500)">Agregar</button>
                 </div>
             </div>
             <div class="col">
-                <div class="product-card p-4 shadow-sm">
+                <div class="product-card p-4 shadow-sm text-center">
                     <div class="card-img-container rounded-4 mb-3"><img src="https://images.unsplash.com/photo-1584017911766-d451b3d0e843?q=80&w=400" class="card-img-top"></div>
                     <h5 class="fw-bold">BioLog 360</h5>
-                    <p class="small text-muted">Registro digital de ciclos de esterilización.</p>
                     <div class="price-tag">$29.900</div>
-                    <button class="btn-add" onclick="add('BioLog 360', 29900)">Agregar al Plan</button>
+                    <button class="btn-add" onclick="add('BioLog 360', 29900)">Agregar</button>
                 </div>
             </div>
         </div>
@@ -110,23 +96,25 @@
             <div class="row justify-content-center">
                 <div class="col-md-6">
                     <div class="contact-form">
-                        <h3 class="fw-bold text-center mb-4">Consulta Directa</h3>
-                        <p class="text-center text-muted mb-4">¿Tienes dudas sobre un software o necesitas algo a medida? Escríbeme.</p>
+                        <h3 class="fw-bold text-center mb-4">Contacto Directo</h3>
                         
-                        <form action="https://formspree.io/f/n.santanam35@gmail.com" method="POST">
-                            <div class="mb-3">
-                                <label class="form-label fw-bold small">Nombre Completo</label>
-                                <input type="text" name="nombre" class="form-control" placeholder="Ej: Dr. Juan Pérez" required>
+                        <form action="https://formsubmit.co/n.santanam35@gmail.com" method="POST">
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_next" value="https://natalysantana.github.io/">
+
+                            <div class="mb-3 text-start">
+                                <label class="form-label fw-bold small">Nombre</label>
+                                <input type="text" name="name" class="form-control" placeholder="Tu nombre" required>
                             </div>
-                            <div class="mb-3">
-                                <label class="form-label fw-bold small">Correo Electrónico</label>
-                                <input type="email" name="email" class="form-control" placeholder="juan@clinica.cl" required>
+                            <div class="mb-3 text-start">
+                                <label class="form-label fw-bold small">Email</label>
+                                <input type="email" name="email" class="form-control" placeholder="tu@correo.com" required>
                             </div>
-                            <div class="mb-3">
+                            <div class="mb-3 text-start">
                                 <label class="form-label fw-bold small">Mensaje</label>
-                                <textarea name="mensaje" class="form-control" rows="4" placeholder="Cuéntame sobre tu laboratorio..." required></textarea>
+                                <textarea name="message" class="form-control" rows="4" placeholder="¿En qué puedo ayudarte?" required></textarea>
                             </div>
-                            <button type="submit" class="btn-submit">Enviar Consulta</button>
+                            <button type="submit" class="btn-submit">Enviar Mensaje</button>
                         </form>
                     </div>
                 </div>
@@ -135,28 +123,25 @@
     </section>
 
     <div class="offcanvas offcanvas-end shadow" tabindex="-1" id="cartSide">
-        <div class="offcanvas-header py-4 bg-dark text-white">
-            <h5 class="fw-bold mb-0">TU CONFIGURACIÓN</h5>
+        <div class="offcanvas-header py-4 bg-dark text-white text-center">
+            <h5 class="fw-bold mb-0">TU PLAN DIGITAL</h5>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
         </div>
         <div class="offcanvas-body">
             <div id="cartList"></div>
-            <div class="mt-4 p-3 bg-light rounded-4 text-dark">
-                <div class="d-flex justify-content-between h5 fw-bold mb-0">
-                    <span>Total:</span>
-                    <span id="totalPrice">$0</span>
-                </div>
+            <div class="mt-4 p-3 bg-light rounded-4 text-dark d-flex justify-content-between fw-bold h5">
+                <span>Total:</span>
+                <span id="totalPrice">$0</span>
             </div>
-            <a href="#" id="waCheck" class="checkout-wa" style="background:var(--wa); color:white; font-weight:800; width:100%; padding:18px; border-radius:16px; text-decoration:none; display:none; text-align:center; margin-top:20px;">ENVIAR A WHATSAPP 📲</a>
+            <a href="#" id="waCheck" class="btn btn-success w-100 py-3 mt-3 fw-bold rounded-4" style="display:none;">PEDIR POR WHATSAPP 📲</a>
         </div>
     </div>
 
     <footer>
         <div class="container text-center">
             <h5 class="mb-3">DENTAL<span>LOGIC</span></h5>
-            <hr class="mb-4" style="border-color:rgba(255,255,255,0.1)">
-            <p class="small mb-1 fw-bold text-white">Nataly Santana</p>
-            <p class="small mb-0">Valdivia, Chile | +569 5953 0948</p>
+            <p class="small mb-0">Nataly Santana | +569 5953 0948</p>
+            <p class="small">Valdivia, Chile</p>
         </div>
     </footer>
 
@@ -170,7 +155,7 @@
             const list = document.getElementById('cartList');
             const wa = document.getElementById('waCheck');
             if (cart.length === 0) {
-                list.innerHTML = '<div class="text-center py-5 text-muted">Carrito vacío.</div>';
+                list.innerHTML = '<div class="text-center py-5 text-muted">Aún no hay productos.</div>';
                 wa.style.display = "none";
             } else {
                 list.innerHTML = '';
@@ -180,7 +165,7 @@
                 wa.style.display = "block";
             }
             document.getElementById('totalPrice').innerText = `$${total.toLocaleString()}`;
-            let m = "Hola Nataly! Me interesa este plan de Dental Logic:%0A";
+            let m = "Hola Nataly! Me interesa este plan:%0A";
             cart.forEach(p => m += `- ${p.n}%0A`);
             wa.href = `https://wa.me/56959530948?text=${m}`;
         }
