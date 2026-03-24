@@ -3,33 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dental Logic | Checkout WhatsApp</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Dental Logic | Nataly Santana</title>
+    <link href="https://cdn.npm.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        :root { --accent: #00d2ff; --dark: #1a1a1a; --wa: #25d366; }
-        body { background: #f8f9fa; font-family: sans-serif; padding-bottom: 120px; }
-        .navbar { background: white; border-bottom: 4px solid var(--accent); padding: 15px 0; }
+        :root { --accent: #00d2ff; --dark: #1b263b; --wa: #25d366; }
+        body { background: #f8f9fa; font-family: 'Inter', sans-serif; padding-bottom: 120px; }
+        .navbar { background: white; border-bottom: 4px solid var(--accent); padding: 15px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
         .cart-status { background: var(--dark); color: white; padding: 10px 20px; border-radius: 50px; font-weight: bold; border: 2px solid var(--accent); }
-        .card { border-radius: 20px; border: none; transition: 0.3s; background: white; }
-        .btn-buy { background: var(--dark); color: white; border: none; padding: 12px; border-radius: 10px; width: 100%; font-weight: bold; }
+        #cart-count { color: var(--accent); font-size: 1.3rem; margin-left: 5px; }
+        .hero { background: white; padding: 50px 0; border-bottom: 1px solid #eee; margin-bottom: 40px; }
+        .card { border: none; border-radius: 20px; transition: 0.3s; height: 100%; background: white; overflow: hidden; }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .card-img-top { height: 200px; object-fit: cover; }
+        .btn-buy { background: var(--dark); color: white; border: none; padding: 12px; border-radius: 10px; width: 100%; font-weight: bold; transition: 0.3s; }
+        .btn-buy:hover { background: var(--accent); color: var(--dark); }
+        .price { color: #00b4d8; font-size: 1.5rem; font-weight: 800; }
         
-        /* BOTÓN WHATSAPP: Ahora con z-index altísimo y visible por defecto para pruebas */
+        /* BOTÓN WHATSAPP ELEGANTE */
         #whatsapp-btn {
             position: fixed;
-            bottom: 20px;
+            bottom: 30px;
             left: 50%;
             transform: translateX(-50%);
             background-color: var(--wa);
             color: white;
-            padding: 18px 40px;
+            padding: 15px 40px;
             border-radius: 50px;
             font-weight: 800;
             text-decoration: none;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
             z-index: 9999;
-            display: none; /* Se activa con JS */
+            display: none;
             font-size: 1.1rem;
+            animation: slideUp 0.5s ease;
         }
+        @keyframes slideUp { from { bottom: -100px; } to { bottom: 30px; } }
     </style>
 </head>
 <body>
@@ -37,71 +46,75 @@
     <nav class="navbar sticky-top">
         <div class="container d-flex justify-content-between align-items-center">
             <a class="navbar-brand fw-bold fs-3" href="#">DENTAL<span style="color:var(--accent)">LOGIC</span></a>
-            <div class="cart-status">🛒 PRODUCTOS: <span id="cart-count">0</span></div>
+            <div class="cart-status shadow-sm">
+                🛒 PRODUCTOS: <span id="cart-count">0</span>
+            </div>
         </div>
     </nav>
 
-    <main class="container mt-5">
+    <header class="hero text-center">
+        <div class="container">
+            <span class="badge bg-info text-dark mb-2 px-3 py-2 fw-bold">PROYECTO MVP 2026</span>
+            <h1 class="display-5 fw-bold">Software para Laboratorios Dentales</h1>
+            <p class="lead text-muted">Diseñado por <strong>Nataly Santana</strong></p>
+            <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?q=80&w=800" class="img-fluid rounded-4 shadow-lg mt-3" style="max-height: 220px; border: 4px solid white;">
+        </div>
+    </header>
+
+    <main class="container">
         <div class="row g-4">
             <div class="col-md-4">
-                <div class="card p-3 shadow-sm text-center">
+                <div class="card shadow-sm p-3">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=400" class="card-img-top rounded-3 mb-3">
                     <h5 class="fw-bold">LabFlow Pro</h5>
-                    <p class="price h4 text-info fw-bold">$85.000</p>
-                    <button class="btn-buy btn-add-cart" data-name="LabFlow Pro">Comprar Ahora</button>
+                    <p class="small text-muted">Gestión de órdenes y flujo técnico.</p>
+                    <p class="price">$85.000</p>
+                    <button class="btn-buy" onclick="agregar('LabFlow Pro')">Comprar Ahora</button>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card p-3 shadow-sm text-center">
+                <div class="card shadow-sm p-3">
+                    <img src="https://images.unsplash.com/photo-1518152006812-edab29b069ac?q=80&w=400" class="card-img-top rounded-3 mb-3">
                     <h5 class="fw-bold">AlloyCalc Python</h5>
-                    <p class="price h4 text-info fw-bold">$32.500</p>
-                    <button class="btn-buy btn-add-cart" data-name="AlloyCalc Python">Comprar Ahora</button>
+                    <p class="small text-muted">Cálculo exacto de metales y aleaciones.</p>
+                    <p class="price">$32.500</p>
+                    <button class="btn-buy" onclick="agregar('AlloyCalc Python')">Comprar Ahora</button>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card p-3 shadow-sm text-center">
+                <div class="card shadow-sm p-3">
+                    <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?q=80&w=400" class="card-img-top rounded-3 mb-3">
                     <h5 class="fw-bold">StockDental AI</h5>
-                    <p class="price h4 text-info fw-bold">$54.900</p>
-                    <button class="btn-buy btn-add-cart" data-name="StockDental AI">Comprar Ahora</button>
+                    <p class="small text-muted">Inventario inteligente de insumos.</p>
+                    <p class="price">$54.900</p>
+                    <button class="btn-buy" onclick="agregar('StockDental AI')">Comprar Ahora</button>
                 </div>
             </div>
         </div>
     </main>
 
-    <a href="#" id="whatsapp-btn">
-        ENVIAR PEDIDO A WHATSAPP 📲
-    </a>
+    <a href="#" id="whatsapp-btn">FINALIZAR PEDIDO POR WHATSAPP 📲</a>
+
+    <footer class="text-center">
+        <p class="fw-bold mb-1">DENTAL LOGIC - CHILE</p>
+        <p class="small text-muted">Nataly Santana | +569 5953 0948</p>
+    </footer>
 
     <script>
         let carrito = [];
         const num = "56959530948";
 
-        function render() {
-            const count = document.getElementById('cart-count');
+        function agregar(nombre) {
+            carrito.push(nombre);
+            document.getElementById('cart-count').innerText = carrito.length;
+            
             const btn = document.getElementById('whatsapp-btn');
+            btn.style.display = "block";
             
-            count.innerText = carrito.length;
-            
-            if(carrito.length > 0) {
-                btn.style.display = "block";
-                let text = "Hola Nataly, quiero comprar:%0A";
-                carrito.forEach(i => text += "- " + i + "%0A");
-                btn.href = "https://wa.me/" + num + "?text=" + text;
-            } else {
-                btn.style.display = "none";
-            }
+            let texto = "Hola Nataly! Me interesan estos programas de Dental Logic:%0A";
+            carrito.forEach(i => texto += "- " + i + "%0A");
+            btn.href = "https://wa.me/" + num + "?text=" + texto;
         }
-
-        document.addEventListener('click', (e) => {
-            if(e.target.classList.contains('btn-add-cart')) {
-                const item = e.target.getAttribute('data-name');
-                carrito.push(item);
-                
-                e.target.innerText = "¡Añadido! ✅";
-                setTimeout(() => { e.target.innerText = "Comprar Ahora"; }, 600);
-                
-                render();
-            }
-        });
     </script>
 </body>
 </html>
