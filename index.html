@@ -10,28 +10,33 @@
         :root { --primary: #0f172a; --accent: #0ea5e9; --bg: #f8fafc; --wa: #22c55e; }
         body { background: var(--bg); font-family: 'Inter', sans-serif; color: #1e293b; }
         
-        /* NAVBAR CON ICONO */
         .navbar { background: var(--primary); border-bottom: 3px solid var(--accent); padding: 1rem 0; }
         .nav-logo { font-weight: 800; font-size: 1.6rem; color: white; text-decoration: none; display: flex; align-items: center; gap: 10px; }
         .nav-logo span { color: var(--accent); }
         .logo-icon { width: 35px; height: 35px; background: var(--accent); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
         .btn-cart-nav { background: white; color: var(--primary); border-radius: 12px; padding: 10px 20px; font-weight: 700; border: none; }
 
-        /* BIENVENIDA PERSONALIZADA */
-        .welcome-section { background: white; padding: 30px 0; border-bottom: 1px solid #e2e8f0; }
-        .welcome-badge { background: #e0f2fe; color: var(--accent); padding: 5px 15px; border-radius: 50px; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; }
-
-        .hero { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: white; padding: 60px 0; text-align: center; }
+        .hero { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: white; padding: 80px 0; text-align: center; }
         
+        /* Sección Sobre Mí */
+        .about-section { background: white; padding: 60px 0; border-bottom: 1px solid #e2e8f0; }
+        .profile-img { width: 150px; height: 150px; object-fit: cover; border-radius: 50%; border: 4px solid var(--accent); margin-bottom: 20px; }
+
         .product-card { border: 1px solid #e2e8f0; border-radius: 24px; background: white; transition: 0.3s; height: 100%; overflow: hidden; }
         .product-card:hover { transform: translateY(-10px); border-color: var(--accent); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
         .card-img-container { height: 180px; overflow: hidden; }
         .card-img-top { height: 100%; width: 100%; object-fit: cover; }
         
-        .badge-tech { background: #f1f5f9; color: #64748b; font-size: 0.75rem; font-weight: 700; padding: 5px 12px; border-radius: 50px; text-transform: uppercase; margin-bottom: 10px; display: inline-block; }
         .price-tag { font-size: 1.5rem; font-weight: 800; color: var(--primary); margin: 15px 0; }
-        .btn-add { background: var(--bg); color: var(--primary); border: 2px solid var(--primary); font-weight: 700; border-radius: 12px; width: 100%; padding: 12px; transition: 0.3s; }
+        .btn-add { background: var(--bg); color: var(--primary); border: 2px solid var(--primary); font-weight: 700; border-radius: 12px; width: 100%; padding: 12px; }
         .btn-add:hover { background: var(--primary); color: white; }
+
+        /* Formulario Estilizado */
+        .contact-section { background: #f1f5f9; padding: 80px 0; }
+        .contact-form { background: white; padding: 40px; border-radius: 24px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+        .form-control { border-radius: 12px; padding: 12px; border: 1px solid #e2e8f0; }
+        .btn-submit { background: var(--primary); color: white; font-weight: 700; padding: 12px 30px; border-radius: 12px; border: none; width: 100%; transition: 0.3s; }
+        .btn-submit:hover { background: var(--accent); transform: translateY(-2px); }
 
         footer { background: var(--primary); color: rgba(255,255,255,0.8); padding: 60px 0; border-top: 4px solid var(--accent); }
     </style>
@@ -44,103 +49,90 @@
                 <div class="logo-icon">🦷</div>
                 DENTAL<span>LOGIC</span>
             </a>
-            <button class="btn-cart-nav shadow-sm" data-bs-toggle="offcanvas" data-bs-target="#cartSide">
-                🛒 Mi Carrito (<span id="count">0</span>)
+            <button class="btn-cart-nav" data-bs-toggle="offcanvas" data-bs-target="#cartSide">
+                🛒 Mi Plan (<span id="count">0</span>)
             </button>
         </div>
     </nav>
 
-    <section class="welcome-section text-center">
-        <div class="container">
-            <span class="welcome-badge mb-2 d-inline-block">Acceso Especializado</span>
-            <h2 class="fw-bold">¡Hola! Soy Nataly Santana</h2>
-            <p class="text-muted">Bienvenida a la suite de herramientas diseñadas para elevar la precisión de tu laboratorio.</p>
-        </div>
-    </section>
-
     <header class="hero">
         <div class="container">
-            <h1 class="fw-bold display-5">Ecosistema Digital 2026</h1>
-            <p class="lead">Soluciones de software personalizadas para el área dental.</p>
+            <h1 class="fw-bold display-4">Precisión que Transforma</h1>
+            <p class="lead">Software especializado para la nueva era de la odontología digital.</p>
         </div>
     </header>
 
+    <section class="about-section text-center">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <h2 class="fw-bold mb-4">Sobre la Desarrolladora</h2>
+                    <p class="lead text-muted">Soy <strong>Nataly Santana</strong>, Laboratorista Dental en transición al mundo del desarrollo de software. Mi objetivo es unir la precisión del laboratorio técnico con la potencia de <strong>Python</strong> y soluciones Full Stack para crear herramientas que realmente solucionen el día a día clínico.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <main class="container py-5">
-        <div class="row g-4 row-cols-1 row-cols-md-2 row-cols-lg-3">
+        <div class="row g-4 row-cols-1 row-cols-md-3">
             <div class="col">
                 <div class="product-card p-4 shadow-sm">
-                    <div class="card-img-container rounded-4 mb-3">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=400" class="card-img-top">
-                    </div>
-                    <span class="badge-tech">Gestión Workflow</span>
+                    <div class="card-img-container rounded-4 mb-3"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=400" class="card-img-top"></div>
                     <h5 class="fw-bold">LabFlow Pro</h5>
-                    <p class="small text-muted">Trazabilidad total de órdenes dentales en tiempo real.</p>
+                    <p class="small text-muted">Gestión de flujo de trabajo y órdenes técnicas.</p>
                     <div class="price-tag">$85.000</div>
                     <button class="btn-add" onclick="add('LabFlow Pro', 85000)">Agregar al Plan</button>
                 </div>
             </div>
             <div class="col">
                 <div class="product-card p-4 shadow-sm">
-                    <div class="card-img-container rounded-4 mb-3">
-                        <img src="https://images.unsplash.com/photo-1518152006812-edab29b069ac?q=80&w=400" class="card-img-top">
-                    </div>
-                    <span class="badge-tech">Algoritmos</span>
+                    <div class="card-img-container rounded-4 mb-3"><img src="https://images.unsplash.com/photo-1518152006812-edab29b069ac?q=80&w=400" class="card-img-top"></div>
                     <h5 class="fw-bold">AlloyCalc Python</h5>
-                    <p class="small text-muted">Cálculo matemático exacto de mermas y aleaciones.</p>
+                    <p class="small text-muted">Calculadora avanzada de aleaciones metálicas.</p>
                     <div class="price-tag">$32.500</div>
                     <button class="btn-add" onclick="add('AlloyCalc Python', 32500)">Agregar al Plan</button>
                 </div>
             </div>
             <div class="col">
                 <div class="product-card p-4 shadow-sm">
-                    <div class="card-img-container rounded-4 mb-3">
-                        <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?q=80&w=400" class="card-img-top">
-                    </div>
-                    <span class="badge-tech">IA Predictiva</span>
-                    <h5 class="fw-bold">StockDental AI</h5>
-                    <p class="small text-muted">Gestión inteligente de stock e insumos críticos.</p>
-                    <div class="price-tag">$54.900</div>
-                    <button class="btn-add" onclick="add('StockDental AI', 54900)">Agregar al Plan</button>
-                </div>
-            </div>
-            <div class="col">
-                <div class="product-card p-4 shadow-sm">
-                    <div class="card-img-container rounded-4 mb-3">
-                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=400" class="card-img-top">
-                    </div>
-                    <span class="badge-tech">Mantenimiento</span>
-                    <h5 class="fw-bold">ScannerCare Hub</h5>
-                    <p class="small text-muted">Registro de calibración y salud de scanners.</p>
-                    <div class="price-tag">$42.000</div>
-                    <button class="btn-add" onclick="add('ScannerCare Hub', 42000)">Agregar al Plan</button>
-                </div>
-            </div>
-            <div class="col">
-                <div class="product-card p-4 shadow-sm">
-                    <div class="card-img-container rounded-4 mb-3">
-                        <img src="https://images.unsplash.com/photo-1584017911766-d451b3d0e843?q=80&w=400" class="card-img-top">
-                    </div>
-                    <span class="badge-tech">Bioseguridad</span>
+                    <div class="card-img-container rounded-4 mb-3"><img src="https://images.unsplash.com/photo-1584017911766-d451b3d0e843?q=80&w=400" class="card-img-top"></div>
                     <h5 class="fw-bold">BioLog 360</h5>
-                    <p class="small text-muted">Libro digital de esterilización y autoclave.</p>
+                    <p class="small text-muted">Registro digital de ciclos de esterilización.</p>
                     <div class="price-tag">$29.900</div>
                     <button class="btn-add" onclick="add('BioLog 360', 29900)">Agregar al Plan</button>
                 </div>
             </div>
-            <div class="col">
-                <div class="product-card p-4 shadow-sm">
-                    <div class="card-img-container rounded-4 mb-3">
-                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=400" class="card-img-top">
+        </div>
+    </main>
+
+    <section class="contact-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="contact-form">
+                        <h3 class="fw-bold text-center mb-4">Consulta Directa</h3>
+                        <p class="text-center text-muted mb-4">¿Tienes dudas sobre un software o necesitas algo a medida? Escríbeme.</p>
+                        
+                        <form action="https://formspree.io/f/n.santanam35@gmail.com" method="POST">
+                            <div class="mb-3">
+                                <label class="form-label fw-bold small">Nombre Completo</label>
+                                <input type="text" name="nombre" class="form-control" placeholder="Ej: Dr. Juan Pérez" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-bold small">Correo Electrónico</label>
+                                <input type="email" name="email" class="form-control" placeholder="juan@clinica.cl" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-bold small">Mensaje</label>
+                                <textarea name="mensaje" class="form-control" rows="4" placeholder="Cuéntame sobre tu laboratorio..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn-submit">Enviar Consulta</button>
+                        </form>
                     </div>
-                    <span class="badge-tech">Finanzas</span>
-                    <h5 class="fw-bold">BillingDent Express</h5>
-                    <p class="small text-muted">Cobranza automática y reportes de rentabilidad.</p>
-                    <div class="price-tag">$68.000</div>
-                    <button class="btn-add" onclick="add('BillingDent Express', 68000)">Agregar al Plan</button>
                 </div>
             </div>
         </div>
-    </main>
+    </section>
 
     <div class="offcanvas offcanvas-end shadow" tabindex="-1" id="cartSide">
         <div class="offcanvas-header py-4 bg-dark text-white">
@@ -155,18 +147,16 @@
                     <span id="totalPrice">$0</span>
                 </div>
             </div>
-            <a href="#" id="waCheck" class="checkout-wa" style="background:var(--wa); color:white; font-weight:800; width:100%; padding:18px; border-radius:16px; text-decoration:none; display:none; text-align:center; margin-top:20px;">FINALIZAR PEDIDO 📲</a>
+            <a href="#" id="waCheck" class="checkout-wa" style="background:var(--wa); color:white; font-weight:800; width:100%; padding:18px; border-radius:16px; text-decoration:none; display:none; text-align:center; margin-top:20px;">ENVIAR A WHATSAPP 📲</a>
         </div>
     </div>
 
     <footer>
         <div class="container text-center">
             <h5 class="mb-3">DENTAL<span>LOGIC</span></h5>
-            <p class="mb-4">Evolución Digital Dental | Valdivia, Chile.</p>
             <hr class="mb-4" style="border-color:rgba(255,255,255,0.1)">
             <p class="small mb-1 fw-bold text-white">Nataly Santana</p>
-            <p class="small mb-0">Laboratorista Dental & Full Stack Python Dev</p>
-            <p class="small">+569 5953 0948</p>
+            <p class="small mb-0">Valdivia, Chile | +569 5953 0948</p>
         </div>
     </footer>
 
@@ -174,43 +164,25 @@
     <script>
         let cart = [];
         let total = 0;
-
-        function add(n, p) {
-            cart.push({ n, p });
-            total += p;
-            update();
-        }
-
+        function add(n, p) { cart.push({ n, p }); total += p; update(); }
         function update() {
             document.getElementById('count').innerText = cart.length;
             const list = document.getElementById('cartList');
             const wa = document.getElementById('waCheck');
-            
             if (cart.length === 0) {
                 list.innerHTML = '<div class="text-center py-5 text-muted">Carrito vacío.</div>';
                 wa.style.display = "none";
             } else {
                 list.innerHTML = '';
                 cart.forEach((i, idx) => {
-                    list.innerHTML += `
-                        <div class="d-flex justify-content-between align-items-center mb-3 border-bottom pb-2">
-                            <div><div class="fw-bold text-dark">${i.n}</div><div class="small text-muted">$${i.p.toLocaleString()}</div></div>
-                            <button class="btn btn-sm btn-outline-danger" onclick="remove(${idx})">×</button>
-                        </div>`;
+                    list.innerHTML += `<div class="d-flex justify-content-between mb-2"><span>${i.n}</span><strong>$${i.p.toLocaleString()}</strong></div>`;
                 });
                 wa.style.display = "block";
             }
             document.getElementById('totalPrice').innerText = `$${total.toLocaleString()}`;
             let m = "Hola Nataly! Me interesa este plan de Dental Logic:%0A";
             cart.forEach(p => m += `- ${p.n}%0A`);
-            m += `TOTAL: $${total}`;
             wa.href = `https://wa.me/56959530948?text=${m}`;
-        }
-
-        function remove(i) {
-            total -= cart[i].p;
-            cart.splice(i, 1);
-            update();
         }
     </script>
 </body>
