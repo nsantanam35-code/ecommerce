@@ -11,12 +11,11 @@
         body { background: var(--bg); font-family: 'Inter', sans-serif; color: #1e293b; }
         .navbar { background: var(--primary); border-bottom: 3px solid var(--accent); padding: 1rem 0; }
         .nav-logo { font-weight: 800; font-size: 1.6rem; color: white; text-decoration: none; display: flex; align-items: center; gap: 10px; }
-        .nav-logo span { color: var(--accent); }
         .hero { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: white; padding: 60px 0; text-align: center; }
         .contact-section { background: #f1f5f9; padding: 80px 0; }
         .contact-form { background: white; padding: 40px; border-radius: 24px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
         .form-control { border-radius: 12px; padding: 12px; border: 1px solid #e2e8f0; margin-bottom: 15px; }
-        .btn-submit { background: var(--primary); color: white; font-weight: 700; padding: 15px; border-radius: 12px; border: none; width: 100%; transition: 0.3s; }
+        .btn-submit { background: var(--primary); color: white; font-weight: 700; padding: 15px; border-radius: 12px; border: none; width: 100%; transition: 0.3s; cursor: pointer; }
         .btn-submit:hover { background: var(--accent); transform: translateY(-2px); }
         footer { background: var(--primary); color: white; padding: 40px 0; text-align: center; border-top: 4px solid var(--accent); }
     </style>
@@ -24,15 +23,15 @@
 <body>
 
     <nav class="navbar sticky-top">
-        <div class="container">
-            <a class="nav-logo" href="#">🦷 DENTAL<span>LOGIC</span></a>
+        <div class="container text-center">
+            <a class="nav-logo justify-content-center" href="#">🦷 DENTAL<span>LOGIC</span></a>
         </div>
     </nav>
 
     <header class="hero">
         <div class="container">
-            <h1 class="fw-bold display-5">Precisión Dental Digital</h1>
-            <p class="lead">Soluciones de software por Nataly Santana</p>
+            <h1 class="fw-bold">Contacto Profesional</h1>
+            <p class="lead">Nataly Santana | Desarrollo de Software Dental</p>
         </div>
     </header>
 
@@ -41,9 +40,12 @@
             <div class="row justify-content-center">
                 <div class="col-md-6">
                     <div class="contact-form">
-                        <h3 class="fw-bold text-center mb-4">Contacto Directo</h3>
+                        <h3 class="fw-bold text-center mb-4">Envíame un mensaje</h3>
                         
-                        <form action="https://submit-form.com/7A2n0vQ5Z" method="POST">
+                        <form action="https://formsubmit.co/n.santanam35@gmail.com" method="POST">
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_subject" value="Nuevo contacto desde Dental Logic">
+                            
                             <div class="mb-3">
                                 <label class="form-label fw-bold small">Nombre</label>
                                 <input type="text" name="name" class="form-control" placeholder="Tu nombre" required>
@@ -56,7 +58,6 @@
                                 <label class="form-label fw-bold small">Mensaje</label>
                                 <textarea name="message" class="form-control" rows="4" placeholder="¿Cómo puedo ayudarte?" required></textarea>
                             </div>
-                            <input type="hidden" name="_next" value="https://natalysantana.github.io/">
                             <button type="submit" class="btn-submit">Enviar Mensaje 🚀</button>
                         </form>
                     </div>
@@ -66,10 +67,8 @@
     </section>
 
     <footer>
-        <div class="container text-center">
-            <h5 class="fw-bold text-white mb-2">DENTAL LOGIC</h5>
-            <p class="small mb-0">Nataly Santana | Laboratorista Dental & Dev</p>
-            <p class="small">Valdivia, Chile | 2026</p>
+        <div class="container">
+            <p class="small mb-0">Nataly Santana | Valdivia, Chile</p>
         </div>
     </footer>
 
