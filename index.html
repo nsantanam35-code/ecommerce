@@ -9,31 +9,22 @@
     <style>
         :root { --primary: #0f172a; --accent: #0ea5e9; --bg: #f8fafc; --wa: #25d366; }
         body { background: var(--bg); font-family: 'Inter', sans-serif; color: #1e293b; }
-        
         .navbar { background: var(--primary); border-bottom: 3px solid var(--accent); padding: 1rem 0; }
         .nav-logo { font-weight: 800; font-size: 1.6rem; color: white; text-decoration: none; display: flex; align-items: center; gap: 10px; }
         .nav-logo span { color: var(--accent); }
         .logo-icon { width: 35px; height: 35px; background: var(--accent); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
         .btn-cart-nav { background: white; color: var(--primary); border-radius: 12px; padding: 10px 20px; font-weight: 700; border: none; }
-
         .hero { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: white; padding: 60px 0; text-align: center; }
-        
-        /* Sección Sobre Mí */
         .about-section { background: white; padding: 60px 0; border-bottom: 1px solid #e2e8f0; }
-
         .product-card { border: 1px solid #e2e8f0; border-radius: 24px; background: white; transition: 0.3s; height: 100%; overflow: hidden; }
         .product-card:hover { transform: translateY(-10px); border-color: var(--accent); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
         .card-img-container { height: 180px; overflow: hidden; }
         .card-img-top { height: 100%; width: 100%; object-fit: cover; }
-        
         .badge-tech { background: #f1f5f9; color: #64748b; font-size: 0.75rem; font-weight: 700; padding: 5px 12px; border-radius: 50px; text-transform: uppercase; margin-bottom: 10px; display: inline-block; }
         .price-tag { font-size: 1.5rem; font-weight: 800; color: var(--primary); margin: 15px 0; }
         .btn-add { background: var(--bg); color: var(--primary); border: 2px solid var(--primary); font-weight: 700; border-radius: 12px; width: 100%; padding: 12px; transition: 0.3s; }
         .btn-add:hover { background: var(--primary); color: white; }
-
-        /* Botón WhatsApp Flotante */
         .wa-float { position: fixed; bottom: 20px; right: 20px; background: var(--wa); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 2px 2px 10px rgba(0,0,0,0.2); z-index: 1000; text-decoration: none; }
-
         footer { background: var(--primary); color: rgba(255,255,255,0.8); padding: 60px 0; border-top: 4px solid var(--accent); }
     </style>
 </head>
@@ -46,15 +37,15 @@
                 DENTAL<span>LOGIC</span>
             </a>
             <button class="btn-cart-nav shadow-sm" data-bs-toggle="offcanvas" data-bs-target="#cartSide">
-                🛒 Mi Plan (<span id="count">0</span>)
+                🛒 Carrito (<span id="count">0</span>)
             </button>
         </div>
     </nav>
 
-    <header class="hero text-center">
-        <div class="container">
+    <header class="hero">
+        <div class="container text-center">
             <h1 class="fw-bold display-5">Ecosistema Digital 2026</h1>
-            <p class="lead">Precisión clínica y flujos de trabajo optimizados por Nataly Santana.</p>
+            <p class="lead">Nataly Santana | Laboratorio Dental & Desarrollo de Software</p>
         </div>
     </header>
 
@@ -63,86 +54,39 @@
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <h2 class="fw-bold mb-4">Sobre Mí</h2>
-                    <p class="lead text-muted">Laboratorista Dental evolucionando hacia el desarrollo Full Stack Python. Mi foco es crear herramientas eficientes para nuestra industria.</p>
+                    <p class="lead text-muted">Especialista en tecnología dental enfocada en optimizar procesos mediante programación avanzada en Python.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <main class="container py-5">
-        <div class="row g-4 row-cols-1 row-cols-md-2 row-cols-lg-3">
+        <div class="row g-4 row-cols-1 row-cols-md-3">
             <div class="col">
                 <div class="product-card p-4 shadow-sm">
-                    <div class="card-img-container rounded-4 mb-3">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=400" class="card-img-top">
-                    </div>
-                    <span class="badge-tech">Gestión Workflow</span>
+                    <div class="card-img-container rounded-4 mb-3"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=400" class="card-img-top"></div>
+                    <span class="badge-tech">Workflow</span>
                     <h5 class="fw-bold">LabFlow Pro</h5>
-                    <p class="small text-muted">Trazabilidad total de órdenes dentales en tiempo real.</p>
                     <div class="price-tag">$85.000</div>
-                    <button class="btn-add" onclick="add('LabFlow Pro', 85000)">Agregar al Plan</button>
+                    <button class="btn-add" onclick="add('LabFlow Pro', 85000)">Añadir al Carrito</button>
                 </div>
             </div>
-
             <div class="col">
                 <div class="product-card p-4 shadow-sm">
-                    <div class="card-img-container rounded-4 mb-3">
-                        <img src="https://images.unsplash.com/photo-1518152006812-edab29b069ac?q=80&w=400" class="card-img-top">
-                    </div>
-                    <span class="badge-tech">Algoritmos</span>
+                    <div class="card-img-container rounded-4 mb-3"><img src="https://images.unsplash.com/photo-1518152006812-edab29b069ac?q=80&w=400" class="card-img-top"></div>
+                    <span class="badge-tech">Cálculos</span>
                     <h5 class="fw-bold">AlloyCalc Python</h5>
-                    <p class="small text-muted">Cálculo matemático exacto de mermas y aleaciones.</p>
                     <div class="price-tag">$32.500</div>
-                    <button class="btn-add" onclick="add('AlloyCalc Python', 32500)">Agregar al Plan</button>
+                    <button class="btn-add" onclick="add('AlloyCalc Python', 32500)">Añadir al Carrito</button>
                 </div>
             </div>
-
             <div class="col">
                 <div class="product-card p-4 shadow-sm">
-                    <div class="card-img-container rounded-4 mb-3">
-                        <img src="https://images.unsplash.com/photo-1584017911766-d451b3d0e843?q=80&w=400" class="card-img-top">
-                    </div>
+                    <div class="card-img-container rounded-4 mb-3"><img src="https://images.unsplash.com/photo-1584017911766-d451b3d0e843?q=80&w=400" class="card-img-top"></div>
                     <span class="badge-tech">Bioseguridad</span>
                     <h5 class="fw-bold">BioLog 360</h5>
-                    <p class="small text-muted">Libro digital de esterilización y autoclave.</p>
                     <div class="price-tag">$29.900</div>
-                    <button class="btn-add" onclick="add('BioLog 360', 29900)">Agregar al Plan</button>
-                </div>
-            </div>
-            
-            <div class="col">
-                <div class="product-card p-4 shadow-sm">
-                    <div class="card-img-container rounded-4 mb-3">
-                        <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?q=80&w=400" class="card-img-top">
-                    </div>
-                    <span class="badge-tech">IA Predictiva</span>
-                    <h5 class="fw-bold">StockDental AI</h5>
-                    <div class="price-tag">$54.900</div>
-                    <button class="btn-add" onclick="add('StockDental AI', 54900)">Agregar al Plan</button>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="product-card p-4 shadow-sm">
-                    <div class="card-img-container rounded-4 mb-3">
-                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=400" class="card-img-top">
-                    </div>
-                    <span class="badge-tech">Mantenimiento</span>
-                    <h5 class="fw-bold">ScannerCare Hub</h5>
-                    <div class="price-tag">$42.000</div>
-                    <button class="btn-add" onclick="add('ScannerCare Hub', 42000)">Agregar al Plan</button>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="product-card p-4 shadow-sm">
-                    <div class="card-img-container rounded-4 mb-3">
-                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=400" class="card-img-top">
-                    </div>
-                    <span class="badge-tech">Finanzas</span>
-                    <h5 class="fw-bold">BillingDent Express</h5>
-                    <div class="price-tag">$68.000</div>
-                    <button class="btn-add" onclick="add('BillingDent Express', 68000)">Agregar al Plan</button>
+                    <button class="btn-add" onclick="add('BioLog 360', 29900)">Añadir al Carrito</button>
                 </div>
             </div>
         </div>
@@ -150,27 +94,25 @@
 
     <div class="offcanvas offcanvas-end shadow" tabindex="-1" id="cartSide">
         <div class="offcanvas-header py-4 bg-dark text-white text-center">
-            <h5 class="fw-bold mb-0">TU CONFIGURACIÓN</h5>
+            <h5 class="fw-bold mb-0">TU SELECCIÓN</h5>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
         </div>
         <div class="offcanvas-body">
             <div id="cartList"></div>
             <div class="mt-4 p-3 bg-light rounded-4 text-dark d-flex justify-content-between fw-bold h5">
-                <span>Inversión Total:</span>
+                <span>Total:</span>
                 <span id="totalPrice">$0</span>
             </div>
-            <a href="#" id="waCheck" class="btn btn-success w-100 py-3 mt-3 fw-bold rounded-4 shadow" style="display:none; background-color: var(--wa);">SOLICITAR COTIZACIÓN 📲</a>
+            <a href="#" id="waCheck" class="btn btn-success w-100 py-3 mt-3 fw-bold rounded-4 shadow" style="display:none; background-color: var(--wa); font-size: 1.2rem;">IR A PAGAR 💳</a>
         </div>
     </div>
 
-    <a href="https://wa.me/56959530948?text=Hola%20Nataly!%20Te%20contacto%20desde%20tu%20web%20Dental%20Logic." class="wa-float" target="_blank">📲</a>
+    <a href="https://wa.me/56959530948?text=Hola%20Nataly!%20Te%20contacto%20desde%20tu%20web." class="wa-float" target="_blank">📲</a>
 
     <footer>
         <div class="container text-center">
-            <h5 class="mb-3 text-white">DENTAL<span>LOGIC</span></h5>
-            <p class="small mb-1 fw-bold text-white">Nataly Santana</p>
-            <p class="small mb-0">Laboratorista Dental & Full Stack Python Dev</p>
-            <p class="small">+569 5953 0948 | Valdivia, Chile</p>
+            <p class="small mb-0">Nataly Santana | +569 5953 0948</p>
+            <p class="small">Valdivia, Chile | 2026</p>
         </div>
     </footer>
 
@@ -184,7 +126,7 @@
             const list = document.getElementById('cartList');
             const wa = document.getElementById('waCheck');
             if (cart.length === 0) {
-                list.innerHTML = '<div class="text-center py-5 text-muted">Aún no hay productos en tu plan.</div>';
+                list.innerHTML = '<div class="text-center py-5 text-muted">El carrito está vacío.</div>';
                 wa.style.display = "none";
             } else {
                 list.innerHTML = '';
@@ -194,9 +136,9 @@
                 wa.style.display = "block";
             }
             document.getElementById('totalPrice').innerText = `$${total.toLocaleString()}`;
-            let m = "Hola Nataly! Me interesa este plan de Dental Logic:%0A";
+            let m = "Hola Nataly! Quiero pagar mi selección de Dental Logic:%0A";
             cart.forEach(p => m += `- ${p.n}%0A`);
-            m += `TOTAL ESTIMADO: $${total}`;
+            m += `TOTAL A PAGAR: $${total}`;
             wa.href = `https://wa.me/56959530948?text=${m}`;
         }
     </script>
