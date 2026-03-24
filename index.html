@@ -9,32 +9,23 @@
     <style>
         :root { --primary: #0f172a; --accent: #38bdf8; --bg: #fdfdfd; --wa: #25d366; }
         body { background: var(--bg); font-family: 'Plus Jakarta Sans', sans-serif; color: #334155; }
-        .navbar { background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); padding: 1.2rem 0; }
+        .navbar { background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); padding: 1.2rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
         .nav-logo { font-weight: 800; font-size: 1.5rem; color: white; text-decoration: none; }
         .nav-logo span { color: var(--accent); }
         .btn-cart-nav { background: var(--accent); color: var(--primary); border-radius: 50px; padding: 8px 24px; font-weight: 700; border: none; }
-        
-        .hero { background: radial-gradient(circle at top right, #1e293b, #0f172a); color: white; padding: 100px 0 60px; text-align: center; }
-        
-        /* Galería Estilo Dashboard */
-        .preview-box { background: #1e293b; border-radius: 20px; padding: 20px; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 30px; }
-        .preview-dot { height: 12px; width: 12px; border-radius: 50%; display: inline-block; margin-right: 5px; }
-        
-        .product-card { border: 1px solid #f1f5f9; border-radius: 20px; background: white; transition: 0.4s; height: 100%; }
+        .hero { background: radial-gradient(circle at top right, #1e293b, #0f172a); color: white; padding: 80px 0; text-align: center; }
+        .preview-box { background: #1e293b; border-radius: 20px; padding: 15px; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 20px; }
+        .preview-dot { height: 10px; width: 10px; border-radius: 50%; display: inline-block; margin-right: 5px; }
+        .product-card { border: 1px solid #f1f5f9; border-radius: 20px; background: white; transition: 0.4s; height: 100%; display: flex; flex-direction: column; }
         .product-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.06); border-color: var(--accent); }
-        .img-wrapper { height: 180px; border-radius: 12px; margin: 10px; overflow: hidden; }
+        .img-wrapper { height: 160px; border-radius: 12px; margin: 10px; overflow: hidden; }
         .card-img-top { height: 100%; width: 100%; object-fit: cover; }
         .price-tag { font-size: 1.4rem; font-weight: 800; color: var(--primary); margin: 15px 0; }
-        .btn-add { background: #f8fafc; color: var(--primary); border: 1.5px solid #e2e8f0; font-weight: 700; border-radius: 12px; width: 100%; padding: 12px; }
-        .btn-add:hover { background: var(--primary); color: white; }
-
-        /* FAQ Estilo Acordeón */
-        .faq-section { background: #f8fafc; padding: 80px 0; }
-        .accordion-item { border: none; margin-bottom: 10px; border-radius: 15px !important; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.02); }
-        .accordion-button:not(.collapsed) { background-color: var(--accent); color: var(--primary); }
-
+        .btn-add { background: #f8fafc; color: var(--primary); border: 1.5px solid #e2e8f0; font-weight: 700; border-radius: 12px; width: 100%; padding: 12px; margin-top: auto; }
+        .faq-section { background: #f8fafc; padding: 60px 0; }
+        .accordion-item { border: none; margin-bottom: 10px; border-radius: 15px !important; overflow: hidden; }
         .wa-float { position: fixed; bottom: 30px; right: 30px; background: var(--wa); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); z-index: 1000; text-decoration: none; }
-        footer { background: #0f172a; color: #94a3b8; padding: 60px 0; }
+        footer { background: #0f172a; color: #94a3b8; padding: 40px 0; text-align: center; }
     </style>
 </head>
 <body>
@@ -42,74 +33,47 @@
     <nav class="navbar sticky-top">
         <div class="container d-flex justify-content-between align-items-center">
             <a class="nav-logo" href="#">DENTAL<span>LOGIC</span></a>
-            <button class="btn-cart-nav" data-bs-toggle="offcanvas" data-bs-target="#cartSide">
-                Carrito (<span id="count">0</span>)
+            <button class="btn-cart-nav shadow-sm" data-bs-toggle="offcanvas" data-bs-target="#cartSide">
+                Mi Carrito (<span id="count">0</span>)
             </button>
         </div>
     </nav>
 
     <header class="hero">
         <div class="container">
-            <h1 class="fw-bold">Software Dental de Precisión</h1>
-            <p class="lead opacity-75">Soluciones Python diseñadas por Nataly Santana.</p>
+            <h1 class="fw-bold">Precisión Clínica Digital</h1>
+            <p class="lead opacity-75">Soluciones Python desarrolladas por Nataly Santana.</p>
         </div>
     </header>
 
-    <section class="container py-5">
-        <h2 class="text-center fw-bold mb-5">Visualización del Ecosistema</h2>
-        <div class="row g-4 text-center">
-            <div class="col-md-6">
-                <div class="preview-box">
-                    <div class="text-start mb-3">
-                        <span class="preview-dot" style="background:#ff5f56"></span>
-                        <span class="preview-dot" style="background:#ffbd2e"></span>
-                        <span class="preview-dot" style="background:#27c93f"></span>
-                    </div>
-                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600" class="img-fluid rounded shadow" alt="Code Preview">
-                    <p class="text-white mt-3 mb-0 small opacity-75">Backend robusto en Python para gestión de datos.</p>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="preview-box">
-                    <div class="text-start mb-3">
-                        <span class="preview-dot" style="background:#ff5f56"></span>
-                        <span class="preview-dot" style="background:#ffbd2e"></span>
-                        <span class="preview-dot" style="background:#27c93f"></span>
-                    </div>
-                    <img src="https://images.unsplash.com/photo-1551288049-bbda38a10ad5?q=80&w=600" class="img-fluid rounded shadow" alt="Dashboard Preview">
-                    <p class="text-white mt-3 mb-0 small opacity-75">Dashboards analíticos para control de inventario.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <main class="container py-5">
+        <h2 class="text-center fw-bold mb-5">Software Especializado</h2>
         <div class="row g-4">
             <div class="col-md-4">
                 <div class="product-card p-3">
                     <div class="img-wrapper"><img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=400" class="card-img-top"></div>
-                    <h5 class="fw-bold mt-2">LabFlow Pro</h5>
-                    <p class="small text-muted">Gestión de flujo clínico y técnico.</p>
+                    <h5 class="fw-bold">LabFlow Pro</h5>
+                    <p class="small text-muted">Gestión de flujo clínico y trazabilidad total.</p>
                     <div class="price-tag">$85.000</div>
-                    <button class="btn-add" onclick="add('LabFlow Pro', 85000)">Añadir</button>
+                    <button class="btn-add" onclick="add('LabFlow Pro', 85000)">Añadir al Carrito</button>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="product-card p-3">
-                    <div class="img-wrapper"><img src="https://images.unsplash.com/photo-1518152006812-edab29b069ac?q=80&w=400" class="card-img-top"></div>
-                    <h5 class="fw-bold mt-2">AlloyCalc Python</h5>
-                    <p class="small text-muted">Algoritmo para mermas metálicas.</p>
+                    <div class="img-wrapper"><img src="https://images.unsplash.com/photo-1551076805-e1869033e561?q=80&w=400" class="card-img-top"></div>
+                    <h5 class="fw-bold">AlloyCalc Python</h5>
+                    <p class="small text-muted">Cálculo exacto de mermas y aleaciones metálicas.</p>
                     <div class="price-tag">$32.500</div>
-                    <button class="btn-add" onclick="add('AlloyCalc Python', 32500)">Añadir</button>
+                    <button class="btn-add" onclick="add('AlloyCalc Python', 32500)">Añadir al Carrito</button>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="product-card p-3">
                     <div class="img-wrapper"><img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=400" class="card-img-top"></div>
-                    <h5 class="fw-bold mt-2">BioLog 360</h5>
-                    <p class="small text-muted">Registro de esterilización digital.</p>
+                    <h5 class="fw-bold">BioLog 360</h5>
+                    <p class="small text-muted">Registro digital de esterilización y bioseguridad.</p>
                     <div class="price-tag">$29.900</div>
-                    <button class="btn-add" onclick="add('BioLog 360', 29900)">Añadir</button>
+                    <button class="btn-add" onclick="add('BioLog 360', 29900)">Añadir al Carrito</button>
                 </div>
             </div>
         </div>
@@ -117,47 +81,11 @@
 
     <section class="faq-section">
         <div class="container">
-            <h2 class="text-center fw-bold mb-5">Preguntas Frecuentes</h2>
-            <div class="row justify-content-center">
-                <div class="col-md-8">
-                    <div class="accordion" id="faqAcc">
-                        <div class="accordion-item shadow-sm">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#f1">
-                                    ¿Cómo se instala el software?
-                                </button>
-                            </h2>
-                            <div id="f1" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
-                                <div class="accordion-body">
-                                    Nuestras soluciones son Web-Based o de escritorio. Yo misma realizo la configuración remota inicial para asegurar que todo funcione perfecto en tu laboratorio.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item shadow-sm">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#f2">
-                                    ¿Hay soporte técnico?
-                                </button>
-                            </h2>
-                            <div id="f2" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
-                                <div class="accordion-body">
-                                    ¡Claro! Al ser desarrolladora directa, el soporte es personalizado vía WhatsApp o Zoom para cualquier duda técnica.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item shadow-sm">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#f3">
-                                    ¿Los datos están seguros?
-                                </button>
-                            </h2>
-                            <div id="f3" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
-                                <div class="accordion-body">
-                                    Sí. Utilizamos bases de datos encriptadas y respaldos automáticos diarios para que la información de tus pacientes esté siempre protegida.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <h2 class="text-center fw-bold mb-4">FAQ</h2>
+            <div class="accordion mx-auto" style="max-width: 700px;" id="faqAcc">
+                <div class="accordion-item shadow-sm">
+                    <h2 class="accordion-header"><button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#f1">¿Cómo recibo el software?</button></h2>
+                    <div id="f1" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Instalación remota personalizada y soporte directo vía WhatsApp.</div></div>
                 </div>
             </div>
         </div>
@@ -165,7 +93,7 @@
 
     <div class="offcanvas offcanvas-end shadow" tabindex="-1" id="cartSide">
         <div class="offcanvas-header bg-dark text-white">
-            <h5 class="fw-bold mb-0">TU PEDIDO</h5>
+            <h5 class="fw-bold mb-0">TU SELECCIÓN</h5>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
         </div>
         <div class="offcanvas-body">
@@ -174,16 +102,15 @@
                 <span>Total:</span>
                 <span id="totalPrice">$0</span>
             </div>
-            <a href="#" id="waCheck" class="btn btn-success w-100 py-3 mt-3 fw-bold rounded-4 shadow" style="display:none; background-color: var(--wa); border:none;">PAGAR VÍA WHATSAPP 📲</a>
+            <a href="#" id="waCheck" class="btn btn-success w-100 py-3 mt-3 fw-bold rounded-4 shadow" style="display:none; background-color: var(--wa); border:none;">PAGAR VÍA WHATSAPP 💳</a>
         </div>
     </div>
 
     <a href="https://wa.me/56959530948?text=Hola%20Nataly!%20Te%20contacto%20desde%20Dental%20Logic." class="wa-float" target="_blank">📲</a>
 
     <footer>
-        <div class="container text-center">
-            <h4 class="text-white fw-bold mb-3">DENTAL LOGIC</h4>
-            <p class="small mb-4 opacity-50">Nataly Santana | Valdivia, Chile | 2026</p>
+        <div class="container">
+            <p class="small mb-0 opacity-50">Nataly Santana | Valdivia, Chile | 2026</p>
         </div>
     </footer>
 
@@ -195,14 +122,14 @@
             document.getElementById('count').innerText = cart.length;
             const list = document.getElementById('cartList');
             const wa = document.getElementById('waCheck');
-            if (cart.length === 0) { list.innerHTML = '<div class="text-center py-5 text-muted small">Vacio.</div>'; wa.style.display = "none"; }
+            if (cart.length === 0) { list.innerHTML = '<div class="text-center py-5 text-muted small">Carrito vacío.</div>'; wa.style.display = "none"; }
             else {
                 list.innerHTML = '';
                 cart.forEach(i => { list.innerHTML += `<div class="d-flex justify-content-between mb-3 border-bottom pb-2"><div><div class="fw-bold small">${i.n}</div></div><strong>$${i.p.toLocaleString()}</strong></div>`; });
                 wa.style.display = "block";
             }
             document.getElementById('totalPrice').innerText = `$${total.toLocaleString()}`;
-            let m = "Hola Nataly! Me interesa contratar estos programas:%0A";
+            let m = "Hola Nataly! Quiero contratar estos programas:%0A";
             cart.forEach(p => m += `- ${p.n}%0A`);
             m += `Total: $${total}`;
             wa.href = `https://wa.me/56959530948?text=${m}`;
