@@ -3,90 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dental Logic | Software Pro</title>
+    <title>Dental Logic | Software de Alta Precisión</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        :root { --main-blue: #00b4d8; --dark: #1b263b; }
-        body { font-family: sans-serif; background: #f8f9fa; }
-        .navbar { background: white; border-bottom: 3px solid var(--main-blue); shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        .hero { background: white; padding: 60px 0; border-bottom: 1px solid #dee2e6; }
-        .card { border-radius: 15px; border: none; transition: 0.3s; }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-        .btn-dark { background: var(--dark); border: none; border-radius: 8px; padding: 10px; }
-        .text-info { color: var(--main-blue) !important; }
+        :root { --dental-blue: #00b4d8; --dental-dark: #1b263b; }
+        body { font-family: 'Inter', sans-serif; background-color: #fbfcfd; color: var(--dental-dark); }
+        .navbar { background: white; border-bottom: 2px solid var(--dental-blue); box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .hero-software { background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 60px 0; border-bottom: 1px solid #dee2e6; }
+        .custom-card { border: 1px solid #eef2f3; border-radius: 20px; transition: all 0.3s ease; background: white; }
+        .custom-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.08); border-color: var(--dental-blue); }
+        .btn-buy { background-color: var(--dental-dark); color: white; border-radius: 10px; font-weight: 600; transition: 0.3s; border: none; padding: 12px; }
+        .btn-buy:hover { background-color: var(--dental-blue); color: white; }
+        .text-info { color: var(--dental-blue) !important; }
+        footer { background: #f8f9fa; border-top: 1px solid #dee2e6; color: #6c757d; }
     </style>
 </head>
 <body>
+
     <nav class="navbar sticky-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="#">DENTAL<span class="text-info">LOGIC</span></a>
-            <button class="btn btn-outline-dark fw-bold">
-                🛒 <span id="cart-count" class="badge bg-info text-dark">0</span>
+            <a class="navbar-brand fw-bold" href="index.html">DENTAL<span class="text-info">LOGIC</span></a>
+            <button class="btn btn-outline-dark fw-bold border-2">
+                🛒 Carrito <span id="cart-count" class="badge bg-info text-dark ms-1">0</span>
             </button>
         </div>
     </nav>
 
-    <header class="hero text-center">
+    <header class="hero-software">
         <div class="container">
-            <h1 class="display-4 fw-bold">Software para Laboratorios</h1>
-            <p class="text-muted">Diseñado por Nataly Santana</p>
-            <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?q=80&w=600" class="img-fluid rounded-4 mt-3 shadow-sm" style="max-height: 250px;">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <span class="badge bg-info text-dark mb-3 px-3 py-2 fw-bold">PROYECTO MVP 2026</span>
+                    <h1 class="display-4 fw-bold">Software de Precisión Dental</h1>
+                    <p class="lead text-muted">Optimiza tu laboratorio con herramientas diseñadas por <strong>Nataly Santana</strong>. De la precisión del yeso a la lógica de Python.</p>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?q=80&w=600" alt="Software Dental" class="img-fluid rounded-4 shadow-lg border border-5 border-white">
+                </div>
+            </div>
         </div>
     </header>
 
-    <main class="container my-5">
-        <div class="row g-4">
-            <div class="col-md-4">
-                <div class="card h-100 p-3 shadow-sm">
+    <main id="catalogo" class="container my-5">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <article class="col">
+                <div class="card h-100 custom-card shadow-sm p-3">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=400" class="card-img-top rounded-4 mb-3" alt="LabFlow">
                     <h5 class="fw-bold">LabFlow Pro</h5>
-                    <p class="small text-muted">Gestión de órdenes y flujos técnicos.</p>
-                    <h4 class="text-info">$85.000</h4>
-                    <button class="btn btn-dark btn-add-cart" data-id="LFP">Comprar Ahora</button>
+                    <p class="small text-secondary"><strong>¿De qué trata?</strong> Gestión total de órdenes. Trazabilidad de estados (encerado, colado, montaje) para laboratorios de alta demanda.</p>
+                    <h4 class="fw-bold text-info mb-4">$85.000</h4>
+                    <button class="btn btn-buy btn-add-cart" data-id="LFP">Comprar Ahora</button>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card h-100 p-3 shadow-sm">
+            </article>
+
+            <article class="col">
+                <div class="card h-100 custom-card shadow-sm p-3">
+                    <img src="https://images.unsplash.com/photo-1518152006812-edab29b069ac?q=80&w=400" class="card-img-top rounded-4 mb-3" alt="AlloyCalc">
                     <h5 class="fw-bold">AlloyCalc Python</h5>
-                    <p class="small text-muted">Cálculo de aleaciones y mermas.</p>
-                    <h4 class="text-info">$32.500</h4>
-                    <button class="btn btn-dark btn-add-cart" data-id="ACP">Comprar Ahora</button>
+                    <p class="small text-secondary"><strong>¿De qué trata?</strong> Calculadora algorítmica de metales preciosos y aleaciones. Elimina el error humano en el pesaje y mermas.</p>
+                    <h4 class="fw-bold text-info mb-4">$32.500</h4>
+                    <button class="btn btn-buy btn-add-cart" data-id="ACP">Comprar Ahora</button>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card h-100 p-3 shadow-sm">
+            </article>
+
+            <article class="col">
+                <div class="card h-100 custom-card shadow-sm p-3">
+                    <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?q=80&w=400" class="card-img-top rounded-4 mb-3" alt="StockDental">
                     <h5 class="fw-bold">StockDental AI</h5>
-                    <p class="small text-muted">Inventario inteligente de insumos.</p>
-                    <h4 class="text-info">$54.900</h4>
-                    <button class="btn btn-dark btn-add-cart" data-id="SDAI">Comprar Ahora</button>
+                    <p class="small text-secondary"><strong>¿De qué trata?</strong> Inventario inteligente. Notifica stock bajo de resinas 3D y dientes acrílicos según tu consumo real.</p>
+                    <h4 class="fw-bold text-info mb-4">$54.900</h4>
+                    <button class="btn btn-buy btn-add-cart" data-id="SDAI">Comprar Ahora</button>
                 </div>
-            </div>
+            </article>
         </div>
     </main>
 
+    <footer class="py-5">
+        <div class="container text-center">
+            <p class="mb-1 fw-bold text-dark">DENTAL LOGIC - SOFTWARE DE PRECISIÓN</p>
+            <p class="small mb-3">Nataly Santana | Especialista en Tecnología Dental & Dev</p>
+            <div class="small">
+                <p class="mb-0">Contacto: <strong>+569 5953 0948</strong></p>
+                <p>Valdivia, Chile | 2026</p>
+            </div>
+        </div>
+    </footer>
+
     <script>
-        // Lógica ultra-segura
+        // Lógica del Carrito (Blindada)
         let carrito = JSON.parse(localStorage.getItem('dental-logic-cart')) || [];
         
-        function refresh() {
-            const b = document.getElementById('cart-count');
-            if(b) b.innerText = carrito.length;
+        function actualizarInterfaz() {
+            const badge = document.getElementById('cart-count');
+            if(badge) badge.innerText = carrito.length;
             localStorage.setItem('dental-logic-cart', JSON.stringify(carrito));
         }
 
-        document.addEventListener('click', (e) => {
-            if(e.target.classList.contains('btn-add-cart')) {
-                carrito.push(e.target.dataset.id);
-                e.target.innerText = "¡Añadido! 🛒";
-                e.target.style.background = "#198754";
-                setTimeout(() => { 
-                    e.target.innerText = "Comprar Ahora"; 
-                    e.target.style.background = ""; 
-                }, 700);
-                refresh();
+        document.addEventListener('click', function(e) {
+            const boton = e.target.closest('.btn-add-cart');
+            if(boton) {
+                const id = boton.getAttribute('data-id');
+                carrito.push(id);
+                
+                const originalText = boton.innerText;
+                boton.innerText = "¡Añadido! 🛒";
+                boton.style.backgroundColor = "#198754"; // Verde éxito
+
+                setTimeout(() => {
+                    boton.innerText = originalText;
+                    boton.style.backgroundColor = ""; 
+                }, 800);
+
+                actualizarInterfaz();
             }
         });
 
-        window.onload = refresh;
+        window.onload = actualizarInterfaz;
     </script>
 </body>
 </html>
