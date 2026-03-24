@@ -5,95 +5,199 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dental Logic | Nataly Santana</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #0f172a; --accent: #0ea5e9; --bg: #f8fafc; --wa: #25d366; }
-        body { background: var(--bg); font-family: 'Inter', sans-serif; color: #1e293b; }
-        .navbar { background: var(--primary); border-bottom: 3px solid var(--accent); padding: 1rem 0; }
-        .nav-logo { font-weight: 800; font-size: 1.6rem; color: white; text-decoration: none; display: flex; align-items: center; gap: 10px; }
+        :root { 
+            --primary: #0f172a; 
+            --accent: #38bdf8; 
+            --bg: #fdfdfd; 
+            --card-bg: #ffffff;
+            --text-main: #334155;
+            --wa-color: #25d366;
+        }
+        
+        body { 
+            background: var(--bg); 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Navbar Estilo Minimalista */
+        .navbar { 
+            background: rgba(15, 23, 42, 0.98); 
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.1); 
+            padding: 1.2rem 0;
+        }
+        .nav-logo { font-weight: 800; font-size: 1.5rem; color: white; text-decoration: none; letter-spacing: -0.5px; }
         .nav-logo span { color: var(--accent); }
-        .logo-icon { width: 35px; height: 35px; background: var(--accent); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
-        .btn-cart-nav { background: white; color: var(--primary); border-radius: 12px; padding: 10px 20px; font-weight: 700; border: none; }
-        .hero { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: white; padding: 60px 0; text-align: center; }
-        .about-section { background: white; padding: 60px 0; border-bottom: 1px solid #e2e8f0; }
-        .product-card { border: 1px solid #e2e8f0; border-radius: 24px; background: white; transition: 0.3s; height: 100%; overflow: hidden; }
-        .product-card:hover { transform: translateY(-10px); border-color: var(--accent); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
-        .card-img-container { height: 180px; overflow: hidden; }
+        
+        .btn-cart-nav { 
+            background: var(--accent); 
+            color: var(--primary); 
+            border-radius: 50px; 
+            padding: 8px 24px; 
+            font-weight: 700; 
+            border: none;
+            transition: 0.3s;
+        }
+
+        /* Hero Section Profesional */
+        .hero { 
+            background: radial-gradient(circle at top right, #1e293b, #0f172a); 
+            color: white; 
+            padding: 100px 0 80px; 
+            text-align: center; 
+        }
+        .hero h1 { font-weight: 800; font-size: 3rem; margin-bottom: 20px; }
+        .hero p { opacity: 0.8; max-width: 600px; margin: 0 auto; font-size: 1.1rem; }
+
+        /* Tarjetas de Producto */
+        .product-card { 
+            border: 1px solid #f1f5f9; 
+            border-radius: 20px; 
+            background: var(--card-bg); 
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); 
+            height: 100%; 
+            display: flex;
+            flex-direction: column;
+        }
+        .product-card:hover { 
+            transform: translateY(-8px); 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+            border-color: var(--accent);
+        }
+        
+        .img-wrapper { 
+            height: 200px; 
+            border-radius: 15px; 
+            margin: 10px;
+            overflow: hidden; 
+        }
         .card-img-top { height: 100%; width: 100%; object-fit: cover; }
-        .badge-tech { background: #f1f5f9; color: #64748b; font-size: 0.75rem; font-weight: 700; padding: 5px 12px; border-radius: 50px; text-transform: uppercase; margin-bottom: 10px; display: inline-block; }
-        .price-tag { font-size: 1.5rem; font-weight: 800; color: var(--primary); margin: 15px 0; }
-        .btn-add { background: var(--bg); color: var(--primary); border: 2px solid var(--primary); font-weight: 700; border-radius: 12px; width: 100%; padding: 12px; transition: 0.3s; }
-        .btn-add:hover { background: var(--primary); color: white; }
-        .wa-float { position: fixed; bottom: 20px; right: 20px; background: var(--wa); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 2px 2px 10px rgba(0,0,0,0.2); z-index: 1000; text-decoration: none; }
-        footer { background: var(--primary); color: rgba(255,255,255,0.8); padding: 60px 0; border-top: 4px solid var(--accent); }
+        
+        .badge-category { 
+            font-size: 0.65rem; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            font-weight: 800; 
+            color: var(--accent); 
+            margin-bottom: 10px; 
+            display: block;
+        }
+
+        .price-tag { font-size: 1.4rem; font-weight: 800; color: var(--primary); margin: 20px 0; }
+        
+        .btn-add { 
+            background: #f8fafc; 
+            color: var(--primary); 
+            border: 1.5px solid #e2e8f0; 
+            font-weight: 700; 
+            border-radius: 12px; 
+            width: 100%; 
+            padding: 14px; 
+            margin-top: auto;
+            transition: 0.3s;
+        }
+        .btn-add:hover { background: var(--primary); color: white; border-color: var(--primary); }
+
+        /* WhatsApp Floater */
+        .wa-float { position: fixed; bottom: 30px; right: 30px; background: var(--wa-color); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; box-shadow: 0 10px 20px rgba(37,211,102,0.3); z-index: 1000; text-decoration: none; }
+
+        footer { background: #0f172a; color: #94a3b8; padding: 80px 0 40px; border-top: 1px solid rgba(255,255,255,0.05); }
     </style>
 </head>
 <body>
 
     <nav class="navbar sticky-top">
         <div class="container d-flex justify-content-between align-items-center">
-            <a class="nav-logo" href="#">
-                <div class="logo-icon">🦷</div>
-                DENTAL<span>LOGIC</span>
-            </a>
+            <a class="nav-logo" href="#">DENTAL<span>LOGIC</span></a>
             <button class="btn-cart-nav shadow-sm" data-bs-toggle="offcanvas" data-bs-target="#cartSide">
-                🛒 Carrito (<span id="count">0</span>)
+                Mi Carrito (<span id="count">0</span>)
             </button>
         </div>
     </nav>
 
     <header class="hero">
-        <div class="container text-center">
-            <h1 class="fw-bold display-5">Ecosistema Digital 2026</h1>
-            <p class="lead">Nataly Santana | Laboratorio Dental & Desarrollo de Software</p>
+        <div class="container">
+            <h1>Precisión Clínica Digital</h1>
+            <p>Nataly Santana | Desarrollo de ecosistemas digitales especializados para laboratorios dentales modernos.</p>
         </div>
     </header>
 
-    <section class="about-section text-center">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-8">
-                    <h2 class="fw-bold mb-4">Sobre Mí</h2>
-                    <p class="lead text-muted">Especialista en tecnología dental enfocada en optimizar procesos mediante programación avanzada en Python.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <main class="container py-5">
-        <div class="row g-4 row-cols-1 row-cols-md-3">
-            <div class="col">
-                <div class="product-card p-4 shadow-sm">
-                    <div class="card-img-container rounded-4 mb-3"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=400" class="card-img-top"></div>
-                    <span class="badge-tech">Workflow</span>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="product-card p-3">
+                    <div class="img-wrapper"><img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=400" class="card-img-top"></div>
+                    <span class="badge-category">Gestión Administrativa</span>
                     <h5 class="fw-bold">LabFlow Pro</h5>
+                    <p class="small text-muted">Software de trazabilidad para órdenes de trabajo y gestión de clientes en tiempo real.</p>
                     <div class="price-tag">$85.000</div>
                     <button class="btn-add" onclick="add('LabFlow Pro', 85000)">Añadir al Carrito</button>
                 </div>
             </div>
-            <div class="col">
-                <div class="product-card p-4 shadow-sm">
-                    <div class="card-img-container rounded-4 mb-3"><img src="https://images.unsplash.com/photo-1518152006812-edab29b069ac?q=80&w=400" class="card-img-top"></div>
-                    <span class="badge-tech">Cálculos</span>
+
+            <div class="col-md-4">
+                <div class="product-card p-3">
+                    <div class="img-wrapper"><img src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=400" class="card-img-top"></div>
+                    <span class="badge-category">Cálculo & IA</span>
                     <h5 class="fw-bold">AlloyCalc Python</h5>
+                    <p class="small text-muted">Algoritmo de alta precisión para el cálculo de mermas en metales nobles y aleaciones.</p>
                     <div class="price-tag">$32.500</div>
                     <button class="btn-add" onclick="add('AlloyCalc Python', 32500)">Añadir al Carrito</button>
                 </div>
             </div>
-            <div class="col">
-                <div class="product-card p-4 shadow-sm">
-                    <div class="card-img-container rounded-4 mb-3"><img src="https://images.unsplash.com/photo-1584017911766-d451b3d0e843?q=80&w=400" class="card-img-top"></div>
-                    <span class="badge-tech">Bioseguridad</span>
+
+            <div class="col-md-4">
+                <div class="product-card p-3">
+                    <div class="img-wrapper"><img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=400" class="card-img-top"></div>
+                    <span class="badge-category">Control Sanitario</span>
                     <h5 class="fw-bold">BioLog 360</h5>
+                    <p class="small text-muted">Registro digital automatizado de procesos de esterilización y autoclave.</p>
                     <div class="price-tag">$29.900</div>
                     <button class="btn-add" onclick="add('BioLog 360', 29900)">Añadir al Carrito</button>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="product-card p-3">
+                    <div class="img-wrapper"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=400" class="card-img-top"></div>
+                    <span class="badge-category">Inventarios</span>
+                    <h5 class="fw-bold">StockDental AI</h5>
+                    <p class="small text-muted">Control de insumos con predicción inteligente de reposición para evitar quiebres.</p>
+                    <div class="price-tag">$54.900</div>
+                    <button class="btn-add" onclick="add('StockDental AI', 54900)">Añadir al Carrito</button>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="product-card p-3">
+                    <div class="img-wrapper"><img src="https://images.unsplash.com/photo-1518152006812-edab29b069ac?auto=format&fit=crop&q=80&w=400" class="card-img-top"></div>
+                    <span class="badge-category">Mantenimiento</span>
+                    <h5 class="fw-bold">ScannerCare Hub</h5>
+                    <p class="small text-muted">Monitorización y alertas de calibración para scanners intraorales y fresadoras.</p>
+                    <div class="price-tag">$42.000</div>
+                    <button class="btn-add" onclick="add('ScannerCare Hub', 42000)">Añadir al Carrito</button>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="product-card p-3">
+                    <div class="img-wrapper"><img src="https://images.unsplash.com/photo-1584017911766-d451b3d0e843?auto=format&fit=crop&q=80&w=400" class="card-img-top"></div>
+                    <span class="badge-category">Facturación</span>
+                    <h5 class="fw-bold">BillingDent Express</h5>
+                    <p class="small text-muted">Módulo simplificado de cobros y conciliación bancaria para laboratorios.</p>
+                    <div class="price-tag">$68.000</div>
+                    <button class="btn-add" onclick="add('BillingDent Express', 68000)">Añadir al Carrito</button>
                 </div>
             </div>
         </div>
     </main>
 
     <div class="offcanvas offcanvas-end shadow" tabindex="-1" id="cartSide">
-        <div class="offcanvas-header py-4 bg-dark text-white text-center">
+        <div class="offcanvas-header py-4 bg-dark text-white">
             <h5 class="fw-bold mb-0">TU SELECCIÓN</h5>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
         </div>
@@ -103,16 +207,18 @@
                 <span>Total:</span>
                 <span id="totalPrice">$0</span>
             </div>
-            <a href="#" id="waCheck" class="btn btn-success w-100 py-3 mt-3 fw-bold rounded-4 shadow" style="display:none; background-color: var(--wa); font-size: 1.2rem;">IR A PAGAR 💳</a>
+            <a href="#" id="waCheck" class="btn btn-success w-100 py-3 mt-3 fw-bold rounded-4 shadow" style="display:none; background-color: var(--wa-color); border:none; font-size: 1.1rem;">IR A PAGAR 💳</a>
         </div>
     </div>
 
-    <a href="https://wa.me/56959530948?text=Hola%20Nataly!%20Te%20contacto%20desde%20tu%20web." class="wa-float" target="_blank">📲</a>
+    <a href="https://wa.me/56959530948?text=Hola%20Nataly!%20Te%20contacto%20desde%20Dental%20Logic." class="wa-float" target="_blank">📲</a>
 
     <footer>
         <div class="container text-center">
-            <p class="small mb-0">Nataly Santana | +569 5953 0948</p>
-            <p class="small">Valdivia, Chile | 2026</p>
+            <h4 class="text-white fw-bold mb-4">DENTAL LOGIC</h4>
+            <p class="small mb-2">Desarrollado por Nataly Santana | Valdivia, Chile</p>
+            <p class="small mb-4">+569 5953 0948</p>
+            <div class="opacity-50 small text-uppercase fw-bold" style="letter-spacing: 2px;">© 2026 Innovation in Dental Technology</div>
         </div>
     </footer>
 
@@ -126,17 +232,17 @@
             const list = document.getElementById('cartList');
             const wa = document.getElementById('waCheck');
             if (cart.length === 0) {
-                list.innerHTML = '<div class="text-center py-5 text-muted">El carrito está vacío.</div>';
+                list.innerHTML = '<div class="text-center py-5 text-muted small">El carrito está vacío.</div>';
                 wa.style.display = "none";
             } else {
                 list.innerHTML = '';
                 cart.forEach((i, idx) => {
-                    list.innerHTML += `<div class="d-flex justify-content-between mb-2 border-bottom pb-2"><span>${i.n}</span><strong>$${i.p.toLocaleString()}</strong></div>`;
+                    list.innerHTML += `<div class="d-flex justify-content-between mb-3 border-bottom pb-2"><div><div class="fw-bold small">${i.n}</div></div><strong class="text-primary">$${i.p.toLocaleString()}</strong></div>`;
                 });
                 wa.style.display = "block";
             }
             document.getElementById('totalPrice').innerText = `$${total.toLocaleString()}`;
-            let m = "Hola Nataly! Quiero pagar mi selección de Dental Logic:%0A";
+            let m = "Hola Nataly! Me interesa contratar los siguientes programas de Dental Logic:%0A";
             cart.forEach(p => m += `- ${p.n}%0A`);
             m += `TOTAL A PAGAR: $${total}`;
             wa.href = `https://wa.me/56959530948?text=${m}`;
