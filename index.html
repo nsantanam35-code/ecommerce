@@ -7,8 +7,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        :root { --accent: #00d2ff; --dark: #1a1a1a; }
-        body { background: #f8f9fa; font-family: 'Inter', sans-serif; color: #333; }
+        :root { --accent: #00d2ff; --dark: #1a1a1a; --wa-green: #25d366; }
+        body { background: #f8f9fa; font-family: 'Inter', sans-serif; color: #333; padding-bottom: 100px; }
         .navbar { background: white; border-bottom: 4px solid var(--accent); padding: 15px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
         .cart-status { background: var(--dark); color: white; padding: 10px 20px; border-radius: 50px; font-weight: bold; border: 2px solid var(--accent); }
         #cart-count { color: var(--accent); font-size: 1.3rem; margin-left: 5px; }
@@ -19,6 +19,24 @@
         .btn-buy { background: var(--dark); color: white; border: none; padding: 12px; border-radius: 10px; width: 100%; font-weight: bold; transition: 0.3s; }
         .btn-buy:hover { background: var(--accent); color: var(--dark); }
         .price { color: #00b4d8; font-size: 1.5rem; font-weight: 800; }
+        
+        /* Botón de WhatsApp Flotante */
+        .btn-checkout {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--wa-green);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 800;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+            display: none; /* Se muestra solo si hay items */
+            z-index: 1000;
+            transition: 0.3s;
+        }
+        .btn-checkout:hover { transform: scale(1.05); color: white; }
         footer { background: white; padding: 40px 0; border-top: 1px solid #eee; margin-top: 60px; }
     </style>
 </head>
@@ -49,38 +67,40 @@
                     <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=400" class="card-img-top mb-3" alt="LabFlow">
                     <div class="card-body p-0">
                         <h5 class="fw-bold">LabFlow Pro</h5>
-                        <p class="small text-muted"><strong>¿De qué trata?</strong> Gestión total de órdenes técnicas. Trazabilidad de estados para laboratorios de alta demanda.</p>
+                        <p class="small text-muted">Gestión total de órdenes técnicas.</p>
                         <p class="price">$85.000</p>
-                        <button class="btn-buy btn-add-cart" data-id="LFP">Comprar Ahora</button>
+                        <button class="btn-buy btn-add-cart" data-id="LabFlow Pro" data-price="85000">Comprar Ahora</button>
                     </div>
                 </div>
             </div>
-
             <div class="col-md-4">
                 <div class="card p-3 shadow-sm">
                     <img src="https://images.unsplash.com/photo-1518152006812-edab29b069ac?q=80&w=400" class="card-img-top mb-3" alt="AlloyCalc">
                     <div class="card-body p-0">
                         <h5 class="fw-bold">AlloyCalc Python</h5>
-                        <p class="small text-muted"><strong>¿De qué trata?</strong> Calculadora de metales preciosos. Elimina el error humano en pesajes y cálculo de mermas.</p>
+                        <p class="small text-muted">Calculadora de metales preciosos.</p>
                         <p class="price">$32.500</p>
-                        <button class="btn-buy btn-add-cart" data-id="ACP">Comprar Ahora</button>
+                        <button class="btn-buy btn-add-cart" data-id="AlloyCalc Python" data-price="32500">Comprar Ahora</button>
                     </div>
                 </div>
             </div>
-
             <div class="col-md-4">
                 <div class="card p-3 shadow-sm">
                     <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?q=80&w=400" class="card-img-top mb-3" alt="StockDental">
                     <div class="card-body p-0">
                         <h5 class="fw-bold">StockDental AI</h5>
-                        <p class="small text-muted"><strong>¿De qué trata?</strong> Inventario inteligente. Notifica stock bajo de resinas y dientes acrílicos automáticamente.</p>
+                        <p class="small text-muted">Inventario inteligente de insumos.</p>
                         <p class="price">$54.900</p>
-                        <button class="btn-buy btn-add-cart" data-id="SDAI">Comprar Ahora</button>
+                        <button class="btn-buy btn-add-cart" data-id="StockDental AI" data-price="54900">Comprar Ahora</button>
                     </div>
                 </div>
             </div>
         </div>
     </main>
+
+    <a href="#" id="whatsapp-btn" class="btn-checkout">
+        Finalizar Pedido por WhatsApp 📲
+    </a>
 
     <footer class="text-center">
         <p class="fw-bold mb-1">DENTAL LOGIC - VALDIVIA, CHILE</p>
@@ -88,29 +108,41 @@
     </footer>
 
     <script>
-        // Lógica del Carrito
         let carrito = JSON.parse(localStorage.getItem('dental-logic-cart')) || [];
-        
+        const phone = "56959530948";
+
         function actualizar() {
             const display = document.getElementById('cart-count');
-            if (display) {
-                display.innerText = carrito.length;
-                localStorage.setItem('dental-logic-cart', JSON.stringify(carrito));
+            const waBtn = document.getElementById('whatsapp-btn');
+            
+            if (display) display.innerText = carrito.length;
+            
+            // Mostrar/Ocultar botón de finalizar
+            if (carrito.length > 0) {
+                waBtn.style.display = "block";
+                
+                // Crear mensaje para WhatsApp
+                let mensaje = "Hola Nataly, me interesa comprar los siguientes programas de Dental Logic:%0A";
+                carrito.forEach(item => {
+                    mensaje += ;
+                });
+                waBtn.href = `https://wa.me/${phone}?text=${mensaje}`;
+            } else {
+                waBtn.style.display = "none";
             }
+            
+            localStorage.setItem('dental-logic-cart', JSON.stringify(carrito));
         }
 
         document.addEventListener('click', (e) => {
             if (e.target.classList.contains('btn-add-cart')) {
-                const id = e.target.getAttribute('data-id');
-                carrito.push(id);
+                const nombre = e.target.getAttribute('data-id');
+                carrito.push(nombre);
                 
-                // Efecto visual
-                const originalText = e.target.innerText;
                 e.target.innerText = "¡Añadido! ✅";
                 e.target.style.background = "#28a745";
-                
                 setTimeout(() => {
-                    e.target.innerText = originalText;
+                    e.target.innerText = "Comprar Ahora";
                     e.target.style.background = "";
                 }, 800);
 
