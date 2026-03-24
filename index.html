@@ -7,105 +7,34 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
-        :root { 
-            --primary: #0f172a; 
-            --accent: #38bdf8; 
-            --bg: #fdfdfd; 
-            --card-bg: #ffffff;
-            --text-main: #334155;
-            --wa-color: #25d366;
-        }
-        
-        body { 
-            background: var(--bg); 
-            font-family: 'Plus Jakarta Sans', sans-serif; 
-            color: var(--text-main);
-            line-height: 1.6;
-        }
-
-        /* Navbar Estilo Minimalista */
-        .navbar { 
-            background: rgba(15, 23, 42, 0.98); 
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255,255,255,0.1); 
-            padding: 1.2rem 0;
-        }
-        .nav-logo { font-weight: 800; font-size: 1.5rem; color: white; text-decoration: none; letter-spacing: -0.5px; }
+        :root { --primary: #0f172a; --accent: #38bdf8; --bg: #fdfdfd; --wa: #25d366; }
+        body { background: var(--bg); font-family: 'Plus Jakarta Sans', sans-serif; color: #334155; }
+        .navbar { background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); padding: 1.2rem 0; }
+        .nav-logo { font-weight: 800; font-size: 1.5rem; color: white; text-decoration: none; }
         .nav-logo span { color: var(--accent); }
+        .btn-cart-nav { background: var(--accent); color: var(--primary); border-radius: 50px; padding: 8px 24px; font-weight: 700; border: none; }
         
-        .btn-cart-nav { 
-            background: var(--accent); 
-            color: var(--primary); 
-            border-radius: 50px; 
-            padding: 8px 24px; 
-            font-weight: 700; 
-            border: none;
-            transition: 0.3s;
-        }
-
-        /* Hero Section Profesional */
-        .hero { 
-            background: radial-gradient(circle at top right, #1e293b, #0f172a); 
-            color: white; 
-            padding: 100px 0 80px; 
-            text-align: center; 
-        }
-        .hero h1 { font-weight: 800; font-size: 3rem; margin-bottom: 20px; }
-        .hero p { opacity: 0.8; max-width: 600px; margin: 0 auto; font-size: 1.1rem; }
-
-        /* Tarjetas de Producto */
-        .product-card { 
-            border: 1px solid #f1f5f9; 
-            border-radius: 20px; 
-            background: var(--card-bg); 
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); 
-            height: 100%; 
-            display: flex;
-            flex-direction: column;
-        }
-        .product-card:hover { 
-            transform: translateY(-8px); 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.06);
-            border-color: var(--accent);
-        }
+        .hero { background: radial-gradient(circle at top right, #1e293b, #0f172a); color: white; padding: 100px 0 60px; text-align: center; }
         
-        .img-wrapper { 
-            height: 200px; 
-            border-radius: 15px; 
-            margin: 10px;
-            overflow: hidden; 
-        }
+        /* Galería Estilo Dashboard */
+        .preview-box { background: #1e293b; border-radius: 20px; padding: 20px; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 30px; }
+        .preview-dot { height: 12px; width: 12px; border-radius: 50%; display: inline-block; margin-right: 5px; }
+        
+        .product-card { border: 1px solid #f1f5f9; border-radius: 20px; background: white; transition: 0.4s; height: 100%; }
+        .product-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.06); border-color: var(--accent); }
+        .img-wrapper { height: 180px; border-radius: 12px; margin: 10px; overflow: hidden; }
         .card-img-top { height: 100%; width: 100%; object-fit: cover; }
-        
-        .badge-category { 
-            font-size: 0.65rem; 
-            text-transform: uppercase; 
-            letter-spacing: 1px; 
-            font-weight: 800; 
-            color: var(--accent); 
-            margin-bottom: 10px; 
-            display: block;
-        }
+        .price-tag { font-size: 1.4rem; font-weight: 800; color: var(--primary); margin: 15px 0; }
+        .btn-add { background: #f8fafc; color: var(--primary); border: 1.5px solid #e2e8f0; font-weight: 700; border-radius: 12px; width: 100%; padding: 12px; }
+        .btn-add:hover { background: var(--primary); color: white; }
 
-        .price-tag { font-size: 1.4rem; font-weight: 800; color: var(--primary); margin: 20px 0; }
-        
-        .btn-add { 
-            background: #f8fafc; 
-            color: var(--primary); 
-            border: 1.5px solid #e2e8f0; 
-            font-weight: 700; 
-            border-radius: 12px; 
-            width: 100%; 
-            padding: 14px; 
-            margin-top: auto;
-            transition: 0.3s;
-        }
-        .btn-add:hover { background: var(--primary); color: white; border-color: var(--primary); }
+        /* FAQ Estilo Acordeón */
+        .faq-section { background: #f8fafc; padding: 80px 0; }
+        .accordion-item { border: none; margin-bottom: 10px; border-radius: 15px !important; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.02); }
+        .accordion-button:not(.collapsed) { background-color: var(--accent); color: var(--primary); }
 
-        /* WhatsApp Floater */
-        .wa-float { position: fixed; bottom: 30px; right: 30px; background: var(--wa-color); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; box-shadow: 0 10px 20px rgba(37,211,102,0.3); z-index: 1000; text-decoration: none; }
-
-        footer { background: #0f172a; color: #94a3b8; padding: 80px 0 40px; border-top: 1px solid rgba(255,255,255,0.05); }
+        .wa-float { position: fixed; bottom: 30px; right: 30px; background: var(--wa); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); z-index: 1000; text-decoration: none; }
+        footer { background: #0f172a; color: #94a3b8; padding: 60px 0; }
     </style>
 </head>
 <body>
@@ -113,92 +42,130 @@
     <nav class="navbar sticky-top">
         <div class="container d-flex justify-content-between align-items-center">
             <a class="nav-logo" href="#">DENTAL<span>LOGIC</span></a>
-            <button class="btn-cart-nav shadow-sm" data-bs-toggle="offcanvas" data-bs-target="#cartSide">
-                Mi Carrito (<span id="count">0</span>)
+            <button class="btn-cart-nav" data-bs-toggle="offcanvas" data-bs-target="#cartSide">
+                Carrito (<span id="count">0</span>)
             </button>
         </div>
     </nav>
 
     <header class="hero">
         <div class="container">
-            <h1>Precisión Clínica Digital</h1>
-            <p>Nataly Santana | Desarrollo de ecosistemas digitales especializados para laboratorios dentales modernos.</p>
+            <h1 class="fw-bold">Software Dental de Precisión</h1>
+            <p class="lead opacity-75">Soluciones Python diseñadas por Nataly Santana.</p>
         </div>
     </header>
+
+    <section class="container py-5">
+        <h2 class="text-center fw-bold mb-5">Visualización del Ecosistema</h2>
+        <div class="row g-4 text-center">
+            <div class="col-md-6">
+                <div class="preview-box">
+                    <div class="text-start mb-3">
+                        <span class="preview-dot" style="background:#ff5f56"></span>
+                        <span class="preview-dot" style="background:#ffbd2e"></span>
+                        <span class="preview-dot" style="background:#27c93f"></span>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600" class="img-fluid rounded shadow" alt="Code Preview">
+                    <p class="text-white mt-3 mb-0 small opacity-75">Backend robusto en Python para gestión de datos.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="preview-box">
+                    <div class="text-start mb-3">
+                        <span class="preview-dot" style="background:#ff5f56"></span>
+                        <span class="preview-dot" style="background:#ffbd2e"></span>
+                        <span class="preview-dot" style="background:#27c93f"></span>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1551288049-bbda38a10ad5?q=80&w=600" class="img-fluid rounded shadow" alt="Dashboard Preview">
+                    <p class="text-white mt-3 mb-0 small opacity-75">Dashboards analíticos para control de inventario.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <main class="container py-5">
         <div class="row g-4">
             <div class="col-md-4">
                 <div class="product-card p-3">
-                    <div class="img-wrapper"><img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=400" class="card-img-top"></div>
-                    <span class="badge-category">Gestión Administrativa</span>
-                    <h5 class="fw-bold">LabFlow Pro</h5>
-                    <p class="small text-muted">Software de trazabilidad para órdenes de trabajo y gestión de clientes en tiempo real.</p>
+                    <div class="img-wrapper"><img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=400" class="card-img-top"></div>
+                    <h5 class="fw-bold mt-2">LabFlow Pro</h5>
+                    <p class="small text-muted">Gestión de flujo clínico y técnico.</p>
                     <div class="price-tag">$85.000</div>
-                    <button class="btn-add" onclick="add('LabFlow Pro', 85000)">Añadir al Carrito</button>
+                    <button class="btn-add" onclick="add('LabFlow Pro', 85000)">Añadir</button>
                 </div>
             </div>
-
             <div class="col-md-4">
                 <div class="product-card p-3">
-                    <div class="img-wrapper"><img src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=400" class="card-img-top"></div>
-                    <span class="badge-category">Cálculo & IA</span>
-                    <h5 class="fw-bold">AlloyCalc Python</h5>
-                    <p class="small text-muted">Algoritmo de alta precisión para el cálculo de mermas en metales nobles y aleaciones.</p>
+                    <div class="img-wrapper"><img src="https://images.unsplash.com/photo-1518152006812-edab29b069ac?q=80&w=400" class="card-img-top"></div>
+                    <h5 class="fw-bold mt-2">AlloyCalc Python</h5>
+                    <p class="small text-muted">Algoritmo para mermas metálicas.</p>
                     <div class="price-tag">$32.500</div>
-                    <button class="btn-add" onclick="add('AlloyCalc Python', 32500)">Añadir al Carrito</button>
+                    <button class="btn-add" onclick="add('AlloyCalc Python', 32500)">Añadir</button>
                 </div>
             </div>
-
             <div class="col-md-4">
                 <div class="product-card p-3">
-                    <div class="img-wrapper"><img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=400" class="card-img-top"></div>
-                    <span class="badge-category">Control Sanitario</span>
-                    <h5 class="fw-bold">BioLog 360</h5>
-                    <p class="small text-muted">Registro digital automatizado de procesos de esterilización y autoclave.</p>
+                    <div class="img-wrapper"><img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=400" class="card-img-top"></div>
+                    <h5 class="fw-bold mt-2">BioLog 360</h5>
+                    <p class="small text-muted">Registro de esterilización digital.</p>
                     <div class="price-tag">$29.900</div>
-                    <button class="btn-add" onclick="add('BioLog 360', 29900)">Añadir al Carrito</button>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="product-card p-3">
-                    <div class="img-wrapper"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=400" class="card-img-top"></div>
-                    <span class="badge-category">Inventarios</span>
-                    <h5 class="fw-bold">StockDental AI</h5>
-                    <p class="small text-muted">Control de insumos con predicción inteligente de reposición para evitar quiebres.</p>
-                    <div class="price-tag">$54.900</div>
-                    <button class="btn-add" onclick="add('StockDental AI', 54900)">Añadir al Carrito</button>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="product-card p-3">
-                    <div class="img-wrapper"><img src="https://images.unsplash.com/photo-1518152006812-edab29b069ac?auto=format&fit=crop&q=80&w=400" class="card-img-top"></div>
-                    <span class="badge-category">Mantenimiento</span>
-                    <h5 class="fw-bold">ScannerCare Hub</h5>
-                    <p class="small text-muted">Monitorización y alertas de calibración para scanners intraorales y fresadoras.</p>
-                    <div class="price-tag">$42.000</div>
-                    <button class="btn-add" onclick="add('ScannerCare Hub', 42000)">Añadir al Carrito</button>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="product-card p-3">
-                    <div class="img-wrapper"><img src="https://images.unsplash.com/photo-1584017911766-d451b3d0e843?auto=format&fit=crop&q=80&w=400" class="card-img-top"></div>
-                    <span class="badge-category">Facturación</span>
-                    <h5 class="fw-bold">BillingDent Express</h5>
-                    <p class="small text-muted">Módulo simplificado de cobros y conciliación bancaria para laboratorios.</p>
-                    <div class="price-tag">$68.000</div>
-                    <button class="btn-add" onclick="add('BillingDent Express', 68000)">Añadir al Carrito</button>
+                    <button class="btn-add" onclick="add('BioLog 360', 29900)">Añadir</button>
                 </div>
             </div>
         </div>
     </main>
 
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-5">Preguntas Frecuentes</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="accordion" id="faqAcc">
+                        <div class="accordion-item shadow-sm">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#f1">
+                                    ¿Cómo se instala el software?
+                                </button>
+                            </h2>
+                            <div id="f1" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
+                                <div class="accordion-body">
+                                    Nuestras soluciones son Web-Based o de escritorio. Yo misma realizo la configuración remota inicial para asegurar que todo funcione perfecto en tu laboratorio.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item shadow-sm">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#f2">
+                                    ¿Hay soporte técnico?
+                                </button>
+                            </h2>
+                            <div id="f2" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
+                                <div class="accordion-body">
+                                    ¡Claro! Al ser desarrolladora directa, el soporte es personalizado vía WhatsApp o Zoom para cualquier duda técnica.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item shadow-sm">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#f3">
+                                    ¿Los datos están seguros?
+                                </button>
+                            </h2>
+                            <div id="f3" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
+                                <div class="accordion-body">
+                                    Sí. Utilizamos bases de datos encriptadas y respaldos automáticos diarios para que la información de tus pacientes esté siempre protegida.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <div class="offcanvas offcanvas-end shadow" tabindex="-1" id="cartSide">
-        <div class="offcanvas-header py-4 bg-dark text-white">
-            <h5 class="fw-bold mb-0">TU SELECCIÓN</h5>
+        <div class="offcanvas-header bg-dark text-white">
+            <h5 class="fw-bold mb-0">TU PEDIDO</h5>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
         </div>
         <div class="offcanvas-body">
@@ -207,7 +174,7 @@
                 <span>Total:</span>
                 <span id="totalPrice">$0</span>
             </div>
-            <a href="#" id="waCheck" class="btn btn-success w-100 py-3 mt-3 fw-bold rounded-4 shadow" style="display:none; background-color: var(--wa-color); border:none; font-size: 1.1rem;">IR A PAGAR 💳</a>
+            <a href="#" id="waCheck" class="btn btn-success w-100 py-3 mt-3 fw-bold rounded-4 shadow" style="display:none; background-color: var(--wa); border:none;">PAGAR VÍA WHATSAPP 📲</a>
         </div>
     </div>
 
@@ -215,36 +182,29 @@
 
     <footer>
         <div class="container text-center">
-            <h4 class="text-white fw-bold mb-4">DENTAL LOGIC</h4>
-            <p class="small mb-2">Desarrollado por Nataly Santana | Valdivia, Chile</p>
-            <p class="small mb-4">+569 5953 0948</p>
-            <div class="opacity-50 small text-uppercase fw-bold" style="letter-spacing: 2px;">© 2026 Innovation in Dental Technology</div>
+            <h4 class="text-white fw-bold mb-3">DENTAL LOGIC</h4>
+            <p class="small mb-4 opacity-50">Nataly Santana | Valdivia, Chile | 2026</p>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        let cart = [];
-        let total = 0;
+        let cart = []; let total = 0;
         function add(n, p) { cart.push({ n, p }); total += p; update(); }
         function update() {
             document.getElementById('count').innerText = cart.length;
             const list = document.getElementById('cartList');
             const wa = document.getElementById('waCheck');
-            if (cart.length === 0) {
-                list.innerHTML = '<div class="text-center py-5 text-muted small">El carrito está vacío.</div>';
-                wa.style.display = "none";
-            } else {
+            if (cart.length === 0) { list.innerHTML = '<div class="text-center py-5 text-muted small">Vacio.</div>'; wa.style.display = "none"; }
+            else {
                 list.innerHTML = '';
-                cart.forEach((i, idx) => {
-                    list.innerHTML += `<div class="d-flex justify-content-between mb-3 border-bottom pb-2"><div><div class="fw-bold small">${i.n}</div></div><strong class="text-primary">$${i.p.toLocaleString()}</strong></div>`;
-                });
+                cart.forEach(i => { list.innerHTML += `<div class="d-flex justify-content-between mb-3 border-bottom pb-2"><div><div class="fw-bold small">${i.n}</div></div><strong>$${i.p.toLocaleString()}</strong></div>`; });
                 wa.style.display = "block";
             }
             document.getElementById('totalPrice').innerText = `$${total.toLocaleString()}`;
-            let m = "Hola Nataly! Me interesa contratar los siguientes programas de Dental Logic:%0A";
+            let m = "Hola Nataly! Me interesa contratar estos programas:%0A";
             cart.forEach(p => m += `- ${p.n}%0A`);
-            m += `TOTAL A PAGAR: $${total}`;
+            m += `Total: $${total}`;
             wa.href = `https://wa.me/56959530948?text=${m}`;
         }
     </script>
