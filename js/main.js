@@ -1,45 +1,41 @@
-// 1. Estado del carrito (Persistencia con localStorage)
+// 1. Inicializar el estado recuperando de localStorage
 let carrito = JSON.parse(localStorage.getItem('dental-logic-cart')) || [];
 
-// 2. Referencias al DOM
-const contadorBadge = document.getElementById('cart-count');
-const botonesAgregar = document.querySelectorAll('.btn-add-cart');
-
-// 3. Función para actualizar la interfaz del Navbar
-function actualizarUI() {
-    contadorBadge.innerText = carrito.length;
+// 2. Función maestra para actualizar la interfaz
+const actualizarContador = () => {
+    const contadorBadge = document.getElementById('cart-count');
+    if (contadorBadge) {
+        contadorBadge.innerText = carrito.length;
+    }
     localStorage.setItem('dental-logic-cart', JSON.stringify(carrito));
-}
+};
 
-// 4. Lógica de Interacción Personalizada
-botonesAgregar.forEach(boton => {
-    boton.addEventListener('click', (e) => {
-        // Obtenemos el nombre del producto desde la tarjeta (DOM traversal)
-        const nombreProducto = e.target.closest('.card-body').querySelector('.card-title').innerText;
-        const idProducto = e.target.getAttribute('data-id');
-
-        // Agregar al array
-        carrito.push({ id: idProducto, nombre: nombreProducto });
-
-        // Feedback Visual Técnico
-        const textoOriginal = e.target.innerText;
-        e.target.innerHTML = "🚀 Instalar " + idProducto;
-        e.target.classList.replace('btn-dark', 'btn-info');
-        e.target.classList.add('text-dark', 'fw-bold');
-
-        // Notificación en consola (opcional, muy de dev)
-        console.log("Sistema " + nombreProducto + " vinculado al carrito.");
-
-        // Revertir el botón tras un breve momento
+// 3. Delegación de Eventos (Escucha global de clics)
+document.addEventListener('click', (event) => {
+    // Verificamos si lo que se clickeó es el botón de compra
+    const boton = event.target.closest('.btn-add-cart');
+    
+    if (boton) {
+        // Evitar que el enlace o botón recargue la página
+        event.preventDefault();
+        
+        const idProducto = boton.getAttribute('data-id');
+        carrito.push(idProducto);
+        
+        // Feedback Visual
+        const originalText = boton.innerText;
+        boton.innerText = "¡Añadido! 🛒";
+        boton.classList.replace('btn-dark', 'btn-success');
+        
         setTimeout(() => {
-            e.target.innerText = textoOriginal;
-            e.target.classList.replace('btn-info', 'btn-dark');
-            e.target.classList.remove('text-dark', 'fw-bold');
-        }, 1200);
-
-        actualizarUI();
-    });
+            boton.innerText = originalText;
+            boton.classList.replace('btn-success', 'btn-dark');
+        }, 700);
+        
+        actualizarContador();
+        console.log("Carrito actualizado:", carrito);
+    }
 });
 
-// 5. Inicializar al cargar
-document.addEventListener('DOMContentLoaded', actualizarUI);
+// 4. Cargar contador al iniciar la página
+document.addEventListener('DOMContentLoaded', actualizarContador);
