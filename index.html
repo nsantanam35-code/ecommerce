@@ -3,104 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dental Logic | Software de Precisión</title>
+    <title>Dental Logic | Software Pro</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        :root { --main-blue: #00b4d8; --dark: #1b263b; }
+        body { font-family: sans-serif; background: #f8f9fa; }
+        .navbar { background: white; border-bottom: 3px solid var(--main-blue); shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .hero { background: white; padding: 60px 0; border-bottom: 1px solid #dee2e6; }
+        .card { border-radius: 15px; border: none; transition: 0.3s; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .btn-dark { background: var(--dark); border: none; border-radius: 8px; padding: 10px; }
+        .text-info { color: var(--main-blue) !important; }
+    </style>
 </head>
 <body>
-
-    <nav class="navbar navbar-expand-lg sticky-top">
+    <nav class="navbar sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">DENTAL<span class="text-info">LOGIC</span></a>
-            <div class="ms-auto">
-                <button class="btn btn-outline-dark fw-bold border-2">
-                    🛒 Carrito <span id="cart-count" class="badge rounded-pill bg-info text-dark ms-1">0</span>
-                </button>
-            </div>
+            <a class="navbar-brand fw-bold" href="#">DENTAL<span class="text-info">LOGIC</span></a>
+            <button class="btn btn-outline-dark fw-bold">
+                🛒 <span id="cart-count" class="badge bg-info text-dark">0</span>
+            </button>
         </div>
     </nav>
 
-    <header class="hero-software py-5 bg-light border-bottom">
-        <div class="container text-center">
+    <header class="hero text-center">
+        <div class="container">
             <h1 class="display-4 fw-bold">Software para Laboratorios</h1>
-            <p class="lead text-muted">Soluciones digitales diseñadas por Nataly Santana.</p>
+            <p class="text-muted">Diseñado por Nataly Santana</p>
+            <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?q=80&w=600" class="img-fluid rounded-4 mt-3 shadow-sm" style="max-height: 250px;">
         </div>
     </header>
 
-    <main id="catalogo" class="container my-5">
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-            <article class="col">
-                <div class="card h-100 custom-card shadow-sm border-0">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=400" class="card-img-top p-3" alt="LabFlow">
-                    <div class="card-body">
-                        <h5 class="fw-bold">LabFlow Pro</h5>
-                        <p class="small text-muted">Gestión de órdenes y flujos clínicos.</p>
-                        <h4 class="fw-bold text-info mb-3">$85.000</h4>
-                        <button class="btn btn-dark w-100 btn-add-cart" data-id="LFP">Comprar Ahora</button>
-                    </div>
+    <main class="container my-5">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 p-3 shadow-sm">
+                    <h5 class="fw-bold">LabFlow Pro</h5>
+                    <p class="small text-muted">Gestión de órdenes y flujos técnicos.</p>
+                    <h4 class="text-info">$85.000</h4>
+                    <button class="btn btn-dark btn-add-cart" data-id="LFP">Comprar Ahora</button>
                 </div>
-            </article>
-            <article class="col">
-                <div class="card h-100 custom-card shadow-sm border-0">
-                    <img src="https://images.unsplash.com/photo-1518152006812-edab29b069ac?q=80&w=400" class="card-img-top p-3" alt="AlloyCalc">
-                    <div class="card-body">
-                        <h5 class="fw-bold">AlloyCalc Python</h5>
-                        <p class="small text-muted">Cálculo de metales y aleaciones.</p>
-                        <h4 class="fw-bold text-info mb-3">$32.500</h4>
-                        <button class="btn btn-dark w-100 btn-add-cart" data-id="ACP">Comprar Ahora</button>
-                    </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 p-3 shadow-sm">
+                    <h5 class="fw-bold">AlloyCalc Python</h5>
+                    <p class="small text-muted">Cálculo de aleaciones y mermas.</p>
+                    <h4 class="text-info">$32.500</h4>
+                    <button class="btn btn-dark btn-add-cart" data-id="ACP">Comprar Ahora</button>
                 </div>
-            </article>
-            <article class="col">
-                <div class="card h-100 custom-card shadow-sm border-0">
-                    <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?q=80&w=400" class="card-img-top p-3" alt="Stock">
-                    <div class="card-body">
-                        <h5 class="fw-bold">StockDental AI</h5>
-                        <p class="small text-muted">Inventario inteligente de insumos.</p>
-                        <h4 class="fw-bold text-info mb-3">$54.900</h4>
-                        <button class="btn btn-dark w-100 btn-add-cart" data-id="SDAI">Comprar Ahora</button>
-                    </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 p-3 shadow-sm">
+                    <h5 class="fw-bold">StockDental AI</h5>
+                    <p class="small text-muted">Inventario inteligente de insumos.</p>
+                    <h4 class="text-info">$54.900</h4>
+                    <button class="btn btn-dark btn-add-cart" data-id="SDAI">Comprar Ahora</button>
                 </div>
-            </article>
+            </div>
         </div>
     </main>
 
-    <footer class="py-4 text-center border-top">
-        <p class="small text-muted">Nataly Santana | Precision Tech | +569 5953 0948</p>
-    </footer>
-
     <script>
+        // Lógica ultra-segura
         let carrito = JSON.parse(localStorage.getItem('dental-logic-cart')) || [];
         
-        function actualizarBadge() {
-            const el = document.getElementById('cart-count');
-            if(el) {
-                el.innerText = carrito.length;
-                localStorage.setItem('dental-logic-cart', JSON.stringify(carrito));
-            }
+        function refresh() {
+            const b = document.getElementById('cart-count');
+            if(b) b.innerText = carrito.length;
+            localStorage.setItem('dental-logic-cart', JSON.stringify(carrito));
         }
 
-        document.addEventListener('click', function(e) {
-            if(e.target && e.target.classList.contains('btn-add-cart')) {
-                const id = e.target.getAttribute('data-id');
-                carrito.push(id);
-                
-                const originalText = e.target.innerText;
+        document.addEventListener('click', (e) => {
+            if(e.target.classList.contains('btn-add-cart')) {
+                carrito.push(e.target.dataset.id);
                 e.target.innerText = "¡Añadido! 🛒";
-                e.target.style.backgroundColor = "#198754"; // Verde éxito
-
-                setTimeout(() => {
-                    e.target.innerText = originalText;
-                    e.target.style.backgroundColor = ""; // Vuelve al color original del CSS
+                e.target.style.background = "#198754";
+                setTimeout(() => { 
+                    e.target.innerText = "Comprar Ahora"; 
+                    e.target.style.background = ""; 
                 }, 700);
-
-                actualizarBadge();
+                refresh();
             }
         });
 
-        // Al cargar la página por primera vez
-        window.onload = actualizarBadge;
+        window.onload = refresh;
     </script>
 </body>
 </html>
